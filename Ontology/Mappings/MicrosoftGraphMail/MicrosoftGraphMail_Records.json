@@ -1,0 +1,12 @@
+[
+    {
+        "id": 0,
+        "source": "MicrosoftGraphMail",
+        "product": "Graph Mail",
+        "eventName": "Email Received in Monitoring Mailbox",
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    }
+]

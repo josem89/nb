@@ -1,0 +1,63 @@
+{
+  "IsAvailableForCommunity": false,
+  "Identifier": "Arnaud Email Utilities",
+  "ShouldInstalledInSystem": false,
+  "Version": 3.0,
+  "DisplayName": "Arnaud Email Utilities",
+  "Description": "",
+  "ImageBase64": null,
+  "SvgImage": null,
+  "IsCustom": true,
+  "PythonVersion": 2,
+  "IntegrationProperties": [],
+  "IntegrationSupportedActions": [
+    {
+      "Name": "Get DNStwist",
+      "Description": "",
+      "Id": 296,
+      "CreationTimeUnixTimeInMs": 1668636096080,
+      "ModificationTimeUnixTimeInMs": 1668636096080
+    },
+    {
+      "Name": "Get Pydeep Hash",
+      "Description": "",
+      "Id": 297,
+      "CreationTimeUnixTimeInMs": 1668636096080,
+      "ModificationTimeUnixTimeInMs": 1668636096080
+    },
+    {
+      "Name": "Get Ssdeep Hash",
+      "Description": "",
+      "Id": 295,
+      "CreationTimeUnixTimeInMs": 1668636096080,
+      "ModificationTimeUnixTimeInMs": 1668636096080
+    },
+    {
+      "Name": "HTML-to-PNG",
+      "Description": "",
+      "Id": 294,
+      "CreationTimeUnixTimeInMs": 1668636096080,
+      "ModificationTimeUnixTimeInMs": 1668636096080
+    },
+    {
+      "Name": "Take URL Screenshot",
+      "Description": "",
+      "Id": 298,
+      "CreationTimeUnixTimeInMs": 1668636096080,
+      "ModificationTimeUnixTimeInMs": 1668636096080
+    }
+  ],
+  "Categories": [],
+  "HasConnectors": false,
+  "DocumentationLink": null,
+  "IsCertified": false,
+  "UploaderFullName": "Arnaud Loos",
+  "PublishComment": null,
+  "UploaderEmail": "arnaudloos@google.com",
+  "UploaderImageBase64": "",
+  "UploaderProfileLink": null,
+  "MinimumSystemVersion": 0.0,
+  "Id": 0,
+  "CreationTimeUnixTimeInMs": 1668636096075,
+  "ModificationTimeUnixTimeInMs": 1668636096075
+}

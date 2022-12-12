@@ -1,0 +1,515 @@
+{
+    "id": 0,
+    "identifier": "0bd4b5f3-ccf3-4e4a-873a-f7b8340cd27f",
+    "version": "0",
+    "isEnabled": true,
+    "isDebugMode": true,
+    "name": "Azure Sentinel",
+    "creator": "e3890181-4974-4036-998a-adde08ae2584",
+    "modifiedBy": "e3890181-4974-4036-998a-adde08ae2584",
+    "priority": 2,
+    "description": "",
+    "environments": [
+        "Default Environment"
+    ],
+    "categoryName": "POV Scenarios",
+    "categoryId": 2,
+    "originalPlaybookIdentifier": "8cbbae7e-fbe2-4a64-99b9-d619bba286a8",
+    "creationTimeUnixTimeInMs": 1668177041719,
+    "modificationTimeUnixTimeInMs": 1669644263012,
+    "trigger": {
+        "id": 0,
+        "identifier": "3f0033e7-03d1-432f-b87c-4eec3b0959d8",
+        "type": 10,
+        "logicalOperator": 0,
+        "conditions": [
+            {
+                "fieldName": "[Alert.SourceSystemName]",
+                "value": "MicrosoftAzureSentinel",
+                "matchType": 0
+            }
+        ]
+    },
+    "steps": [
+        {
+            "workflowIdentifier": "0bd4b5f3-ccf3-4e4a-873a-f7b8340cd27f",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "An embedded workflow that can receive inputs and return an output.",
+            "pendingStepProperties": null,
+            "identifier": "40bfd4cf-70b0-481c-9654-d0449882f7d2",
+            "originalStepIdentifier": "acc970ba-1e3d-46ab-8041-f5ee13417943",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Process Azure Sentinel_1",
+            "name": "Process Azure Sentinel",
+            "integration": "Siemplify",
+            "actionProvider": "Flow",
+            "actionName": "NestedAction",
+            "type": 5,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowIdentifier",
+                    "value": "996a65a4-cdd0-438a-aa94-235fb6362ee7",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowInputs",
+                    "value": "[]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowSteps",
+                    "value": "[{\"actionName\":\"Tools_Set Context Value\",\"instanceName\":\"Tools_Set Context Value_3\",\"stepType\":0},{\"actionName\":\"Tools_Set Context Value\",\"instanceName\":\"Set AS Owner\",\"stepType\":0},{\"actionName\":\"IfFlowCondition\",\"instanceName\":\"Condition_1\",\"stepType\":4},{\"actionName\":\"Siemplify_Update Case Description\",\"instanceName\":\"Siemplify_Update Case Description_1\",\"stepType\":0},{\"actionName\":\"Tools_Set Context Value\",\"instanceName\":\"Set AS Description\",\"stepType\":0},{\"actionName\":\"Tools_Set Context Value\",\"instanceName\":\"Set AS Status\",\"stepType\":0},{\"actionName\":\"Tools_Set Context Value\",\"instanceName\":\"Set AS Severity\",\"stepType\":0}]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowOutput",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": false,
+            "debugData": null,
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1669644263012,
+            "modificationTimeUnixTimeInMs": 1669644263012,
+            "additionalProperties": {}
+        },
+        {
+            "workflowIdentifier": "0bd4b5f3-ccf3-4e4a-873a-f7b8340cd27f",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "Add given tag to the case the current alert is grouped to",
+            "pendingStepProperties": null,
+            "identifier": "fd0ba3bb-5964-4275-9c68-d92f83c8784d",
+            "originalStepIdentifier": "4c978a5e-8bea-464d-b6f1-93631380d0a5",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Siemplify_Case Tag_1",
+            "name": "Siemplify_Case Tag",
+            "integration": "Siemplify",
+            "actionProvider": "Scripts",
+            "actionName": "Siemplify_Case Tag",
+            "type": 0,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "FallbackIntegrationInstance",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "IntegrationInstance",
+                    "value": "9b6cd0bf-aaf4-4e73-83f1-b413216b4136",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "ScriptName",
+                    "value": "Siemplify_Case Tag",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "ScriptParametersEntityFields",
+                    "value": "{\"Tag\":\"Azure Sentinel\"}",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "SelectedScopeName",
+                    "value": "All entities",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": false,
+            "debugData": {
+                "originalWorkflowIdentifier": "8cbbae7e-fbe2-4a64-99b9-d619bba286a8",
+                "originalStepIdentifier": "4c978a5e-8bea-464d-b6f1-93631380d0a5",
+                "resultValue": "",
+                "resultJson": "",
+                "scopeEntitiesEnrichmentData": [],
+                "id": 0,
+                "creationTimeUnixTimeInMs": 0,
+                "modificationTimeUnixTimeInMs": 0,
+                "additionalProperties": {}
+            },
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1669644263012,
+            "modificationTimeUnixTimeInMs": 1669644263012,
+            "additionalProperties": {}
+        }
+    ],
+    "stepsRelations": [
+        {
+            "condition": "",
+            "fromStep": "40bfd4cf-70b0-481c-9654-d0449882f7d2",
+            "toStep": "fd0ba3bb-5964-4275-9c68-d92f83c8784d",
+            "destinationActionStatus": 0
+        }
+    ],
+    "templateName": null,
+    "playbookType": 0,
+    "debugData": {
+        "debugBaseAlertId": null,
+        "debugAlertId": null
+    },
+    "entityAccessLevel": 2,
+    "defaultAccessLevel": 2,
+    "permissions": [],
+    "overviewTemplates": [
+        {
+            "id": 19,
+            "identifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+            "name": "Case",
+            "creator": null,
+            "playbookIdentifier": "0bd4b5f3-ccf3-4e4a-873a-f7b8340cd27f",
+            "type": 0,
+            "widgets": [
+                {
+                    "metadata": {
+                        "id": 141,
+                        "identifier": "7c5a0838-9efe-4552-966c-b7ec2fc7b5f8",
+                        "title": "HTML",
+                        "width": 2,
+                        "order": 1,
+                        "description": "",
+                        "type": 3,
+                        "templateIdentifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "htmlContent": "<!DOCTYPE html>\n<html>\n\n<head>\n<style>\n\tbody {\n\t\tbackground-color: #EDEFF6;\n\t\tcolor: #4E4F63;\n\t\tfont-family: Open Sans;\n\t}\n</style>\n</head>\n\n<body>\n\n<a href=\"[Event.properties_incidentUrl]\" target=\"_blank\">[Event.properties_incidentNumber]</a>\n\n</body>\n</html>",
+                        "htmlHeight": 200,
+                        "safeRendering": false,
+                        "type": 3,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 142,
+                        "identifier": "d69c5844-aa38-4514-938a-5767ede2de7e",
+                        "title": "Events Table",
+                        "width": 2,
+                        "order": 2,
+                        "description": "This widget displays all Alert events and their properties.",
+                        "type": 1,
+                        "templateIdentifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "eventSelectedFields": [
+                            {
+                                "columnName": "Incident Number",
+                                "fieldRawValue": "[Event.properties_incidentNumber]"
+                            },
+                            {
+                                "columnName": "Incident URL",
+                                "fieldRawValue": "[Event.properties_incidentUrl]"
+                            }
+                        ],
+                        "type": 1,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 143,
+                        "identifier": "f6fac31d-e006-47d6-a5c2-b8813b929e94",
+                        "title": "HTML",
+                        "width": 2,
+                        "order": 4,
+                        "description": "",
+                        "type": 3,
+                        "templateIdentifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "htmlContent": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <script src=\"https://code.jquery.com/jquery-1.10.2.min.js\"></script>\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i\" rel=\"stylesheet\">\n    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>\n    <link href='https://www.siemplify.co/wp-content/themes/siemplify/assets/fonts/stylesheet.css?version=99601167404751'\n        rel='stylesheet'>\n    <style>\n        .content {\n            max-width: 650px !important;\n        }\n        .chat-list {\n            padding: 0;\n            font-size: .8rem;\n        }\n        .chat-list li {\n            margin-bottom: 10px;\n            overflow: auto;\n            color: #ffffff;\n        }\n        .chat-list .chat-img {\n            float: left;\n            width: 48px;\n        }\n        .chat-list .chat-img img {\n            -webkit-border-radius: 50px;\n            -moz-border-radius: 50px;\n            border-radius: 50px;\n            width: 100%;\n        }\n        .card {\n            border: 0px solid rgba(0, 0, 0, .125);\n            border-radius: 0;\n        }\n        .chat-list .chat-message {\n            -webkit-border-radius: 0px 8px 8px 8px;\n            -moz-border-radius: 0px 8px 8px 8px;\n            border-radius: 0px 8px 8px 8px;\n            background: #E5E8F2;\n            display: inline-block;\n            padding: 10px 10px;\n            position: relative;\n        }\n        .chat-list .chat-message:before {\n            /* content: \"\"; */\n            position: absolute;\n            top: 15px;\n            width: 0;\n            height: 0;\n        }\n        .chat-list .chat-message h5 {\n            margin: 0 0 5px 0;\n            font-weight: 600;\n            line-height: 100%;\n            font-size: .9rem;\n        }\n        .chat-list .chat-message p {\n            margin: 0;\n            padding: 0;\n            font-family: Open Sans;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 12px;\n            line-height: 16px;\n            display: flex;\n            align-items: center;\n            color: #4E4F63;\n        }\n        .chat-list .chat-body {\n            margin-left: 10px;\n            float: left;\n            width: 59%;\n        }\n        span.cusDateTime {\n            font-family: Open Sans;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 10px;\n            line-height: 108.95%;\n            align-items: center;\n            color: #4E4F63;\n        }\n        .chat-list .in .chat-message:before {\n            left: -12px;\n            border-bottom: 20px solid transparent;\n            border-right: 20px solid #5a99ee;\n        }\n        .chat-list .out .chat-img {\n            float: right;\n        }\n        .chat-list .out .chat-body {\n            float: right;\n            margin-right: 10px;\n            text-align: right;\n        }\n        .chat-list .out .chat-message {\n            background: #55A5F4;\n        }\n        .chat-list .out .chat-message p {\n            font-family: Open Sans;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 12px;\n            line-height: 16px;\n            display: flex;\n            align-items: center;\n            text-align: right;\n            color: #FFFFFF;\n        }\n        .chat-list .out .chat-message:before {\n            right: -12px;\n            border-bottom: 20px solid transparent;\n            border-left: 20px solid #fc6d4c;\n        }\n        .card .card-header:first-child {\n            -webkit-border-radius: 0.3rem 0.3rem 0 0;\n            -moz-border-radius: 0.3rem 0.3rem 0 0;\n            border-radius: 0.3rem 0.3rem 0 0;\n        }\n        .card .card-header {\n            background: #17202b;\n            border: 0;\n            font-size: 1rem;\n            padding: .65rem 1rem;\n            position: relative;\n            font-weight: 600;\n            color: #ffffff;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container content\">\n        <div class=\"row\">\n            <div class=\"col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12\">\n                <div class=\"card\">\n                    <div class=\"card-body height3\">\n                        <ul class=\"chat-list\" id=\"chatListData\">\n                        </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <script>\n        $(document).ready(function () {\n            var jsonData = { \"chatData\": [{ \"type\": \"in\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/IO52DP4Q85KB/64.png\" }, { \"type\": \"out\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/VGSNSV21ZUL7/64.png\" }, { \"type\": \"in\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/IO52DP4Q85KB/64.png\" }, { \"type\": \"out\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/VGSNSV21ZUL7/64.png\" }] };\n            var mhtml = '';\n            $.each(jsonData.chatData, function (key, val) {\n                if (val.type == 'in') {\n                    mhtml += '<li class=\"in\"><div class=\"chat-img\"><img alt=\"Avtar\" src=\"' + val.photo_url + '\"></div><div class=\"chat-body\"><div class=\"chat-message\"><p>' + val.text + '</p></div><span class=\"cusDateTime\">' + val.datetime + '</span></div></li>';\n                } else {\n                    mhtml += '<li class=\"out\"><div class=\"chat-img\"><img alt=\"Avtar\" src=\"' + val.photo_url + '\"></div><div class=\"chat-body\"><div class=\"chat-message\"><p>' + val.text + '</p></div><span class=\"cusDateTime\">' + val.datetime + '</span></div></li>';\n                }\n            });\n            $('#chatListData').append(mhtml);\n        });\n    </script>\n</body>\n</html>",
+                        "htmlHeight": 425,
+                        "safeRendering": false,
+                        "type": 3,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 144,
+                        "identifier": "9d11f416-13ba-4c42-809f-d8938afb5f7c",
+                        "title": "Key Value",
+                        "width": 2,
+                        "order": 5,
+                        "description": "",
+                        "type": 0,
+                        "templateIdentifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "keyValue": [],
+                        "type": 0,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 145,
+                        "identifier": "eeb95881-a243-4c22-8fe0-f8f3f40fbd39",
+                        "title": "Entities Graph",
+                        "width": 2,
+                        "order": 6,
+                        "description": "This widget includes a visual graph and other details of the Case Entities.",
+                        "type": 7,
+                        "templateIdentifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "targetScope": 0,
+                        "type": 7,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 146,
+                        "identifier": "3713bdbf-1deb-49ef-9142-ef2dec3b9f24",
+                        "title": "Entities Highlights",
+                        "width": 2,
+                        "order": 7,
+                        "description": "This widget displays the highlighted fields for each entity.",
+                        "type": 10,
+                        "templateIdentifier": "f72efbdf-bdac-4dc6-8dfe-1ff8f652b758",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "highlightFieldConfigs": [],
+                        "targetScope": 0,
+                        "type": 10,
+                        "widgetDefinitionScope": 2
+                    }
+                }
+            ],
+            "roles": [
+                1
+            ],
+            "creationTimeUnixTimeInMs": 1669644263012
+        }
+    ]
+}

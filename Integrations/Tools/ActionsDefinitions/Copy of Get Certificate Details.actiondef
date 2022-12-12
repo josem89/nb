@@ -1,0 +1,69 @@
+{
+    "id": 0,
+    "type": 1,
+    "name": "Copy of Get Certificate Details",
+    "description": "",
+    "script": "\nfrom SiemplifyAction import SiemplifyAction\nfrom SiemplifyDataModel import EntityTypes\nfrom SiemplifyUtils import unix_now, convert_unixtime_to_datetime, output_handler\nfrom ScriptResult import EXECUTION_STATE_COMPLETED, EXECUTION_STATE_FAILED,EXECUTION_STATE_TIMEDOUT\nfrom SiemplifyDataModel import EntityTypes\nfrom OpenSSL import SSL\nfrom cryptography import x509\nfrom cryptography.x509.oid import NameOID\nimport idna\nimport json\nfrom socket import socket\nfrom collections import namedtuple\nfrom datetime import datetime\nfrom urllib.parse import urlparse\n\nINTEGRATION_NAME = u\"Tools\"\nSCRIPT_NAME = u\"Cert Handler\"\nHostInfo = namedtuple(field_names='cert hostname peername', typename='HostInfo')\njson_output = {'results': []}\n\ndef get_entity_original_identifier(entity):\n    return entity.additional_properties.get('OriginalIdentifier', entity.identifier)\n    \ndef get_certificate(hostname, port):\n    hostname_idna = idna.encode(hostname)\n    sock = socket()\n\n    sock.connect((hostname, port))\n    peername = sock.getpeername()\n    ctx = SSL.Context(SSL.SSLv23_METHOD) # most compatible\n    ctx.check_hostname = False\n    ctx.verify_mode = SSL.VERIFY_NONE\n\n    sock_ssl = SSL.Connection(ctx, sock)\n    sock_ssl.set_connect_state()\n    sock_ssl.set_tlsext_host_name(hostname_idna)\n    sock_ssl.do_handshake()\n    cert = sock_ssl.get_peer_certificate()\n    crypto_cert = cert.to_cryptography()\n    sock_ssl.close()\n    sock.close()\n\n    return HostInfo(cert=crypto_cert, peername=peername, hostname=hostname)\n\ndef  get_alt_names(cert):\n    try:\n        ext = cert.extensions.get_extension_for_class(x509.SubjectAlternativeName)\n        return ext.value.get_values_for_type(x509.DNSName)\n    except x509.ExtensionNotFound:\n        return None\n\ndef get_common_name(cert):\n    try:\n        names = cert.subject.get_attributes_for_oid(NameOID.COMMON_NAME)\n        return names[0].value\n    except x509.ExtensionNotFound:\n        return None\n\ndef get_issuer(cert):\n    try:\n        names = cert.issuer.get_attributes_for_oid(NameOID.COMMON_NAME)\n        #cmp = cert.issuer.get_components()\n        return names[0].value\n    except x509.ExtensionNotFound:\n        return None\n\n\ndef get_json_result(hostinfo):\n    common_name = get_common_name(hostinfo.cert)\n    san =get_alt_names(hostinfo.cert),\n    issuer = get_issuer(hostinfo.cert)\n\n    now  = datetime.now()\n    delta = hostinfo.cert.not_valid_after - now   \n    days_to_expiration = delta.days\n    is_expired = days_to_expiration < 0 \n    is_self_signed = common_name == issuer\n    date_time = hostinfo.cert.not_valid_before.strftime(\"%m/%d/%Y\")\n\n    cert_details = {\n        'hostname': hostinfo.hostname,\n        'ip': hostinfo.peername[0],\n        'commonName':common_name,\n        'is_self_signed':is_self_signed,\n        'SAN': san,\n        'is_expired': is_expired,\n        'issuer': issuer,\n        'not_valid_before': hostinfo.cert.not_valid_before.strftime(\"%m/%d/%Y\"),\n        'not_valid_after': hostinfo.cert.not_valid_after.strftime(\"%m/%d/%Y\"),\n        'days_to_expiration': days_to_expiration\n    }\n\n    return cert_details\n\n@output_handler\ndef main():\n    siemplify = SiemplifyAction()\n    siemplify.script_name = SCRIPT_NAME\n    \n    output_message = \"Error occurred\"\n    result_value = \"Failure\"\n    \n    suitable_entities = [entity for entity in siemplify.target_entities if entity.entity_type == EntityTypes.URL]\n\n    \n    for entity in suitable_entities:\n        siemplify.LOGGER.info(\"Started processing URL: {}\".format(get_entity_original_identifier(entity)))\n        try:\n            host = get_entity_original_identifier(entity)\n            host_domain = urlparse(host).netloc\n            hostinfo = get_certificate(host_domain, 443)\n            json_res = get_json_result(hostinfo)\n            output_message = \"Url Certificate  was successfully analyzed.\"\n            siemplify.LOGGER.info(\"Cert for Domain {} retrieved\".format(host_domain))\n            json_output[\"results\"].append(json_res)\n            \n        except Exception as e:\n            siemplify.LOGGER.error(\"Error: {}\".format(e))        \n                \n        \n        \n    siemplify.result.add_result_json(json_output)\n    siemplify.end(output_message, result_value)\n\nif __name__ == \"__main__\":\n    main()\n",
+    "integration": "Tools",
+    "creator": "7a7f9e2c-7774-4221-8558-986f5708fd17",
+    "creatorFullName": "jose marin",
+    "isEnabled": true,
+    "isCustom": true,
+    "version": 132,
+    "parameters": [
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Output Name",
+            "defaultValue": "ScriptResult",
+            "type": 2,
+            "description": null,
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Result Json Example",
+            "defaultValue": "{}",
+            "type": 2,
+            "description": null,
+            "mode": 2,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Include JSON Result",
+            "defaultValue": "True",
+            "type": 0,
+            "description": null,
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Polling Timeout",
+            "defaultValue": "120",
+            "type": 17,
+            "description": "Will poll until this threshold is reached. Then the actions ends with a timeout.",
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Default Return Value",
+            "defaultValue": "",
+            "type": 2,
+            "description": "On timeout, this value will be returned by the script via the Output Name parameter.",
+            "mode": 0,
+            "optionalValues": null
+        }
+    ],
+    "connectorRules": null,
+    "isConnectorRulesSupported": false,
+    "documentationLink": null,
+    "pythonVersion": "V3_7"
+}

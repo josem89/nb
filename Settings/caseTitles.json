@@ -1,0 +1,22 @@
+[
+    {
+        "value": "[Alert.RuleGenerator]",
+        "order": 1
+    },
+    {
+        "value": "[Case.FirstTagForCaseName]",
+        "order": 2
+    },
+    {
+        "value": "[Alert.Product]",
+        "order": 3
+    },
+    {
+        "value": "",
+        "order": 4
+    },
+    {
+        "value": "",
+        "order": 5
+    }
+]

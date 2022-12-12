@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0,
+        "source": "MicrosoftAzureSentinel",
+        "product": "Azure Sentinel",
+        "eventName": "ScheduledAlert",
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "MicrosoftAzureSentinel",
+        "product": "Azure Active Directory Identity Protection",
+        "eventName": "Ip",
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "MicrosoftAzureSentinel",
+        "product": "Azure Active Directory Identity Protection",
+        "eventName": "SecurityAlert",
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "MicrosoftAzureSentinel",
+        "product": "Azure Active Directory Identity Protection",
+        "eventName": "Account",
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "MicrosoftAzureSentinel",
+        "product": "Azure Sentinel",
+        "eventName": "Azure Sentinel",
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "MicrosoftAzureSentinel",
+        "product": "Product Name",
+        "eventName": null,
+        "familyName": "Default",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    }
+]

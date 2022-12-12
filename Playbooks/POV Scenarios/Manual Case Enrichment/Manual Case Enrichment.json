@@ -1,0 +1,1093 @@
+{
+    "id": 0,
+    "identifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+    "version": "0",
+    "isEnabled": true,
+    "isDebugMode": true,
+    "name": "Manual Case Enrichment",
+    "creator": "7a7f9e2c-7774-4221-8558-986f5708fd17",
+    "modifiedBy": "e3890181-4974-4036-998a-adde08ae2584",
+    "priority": 2,
+    "description": "",
+    "environments": [
+        "*"
+    ],
+    "categoryName": "POV Scenarios",
+    "categoryId": 2,
+    "originalPlaybookIdentifier": "6021c52b-1239-49fc-b0e6-a95ab13098c2",
+    "creationTimeUnixTimeInMs": 1668005472591,
+    "modificationTimeUnixTimeInMs": 1668533118054,
+    "trigger": {
+        "id": 0,
+        "identifier": "9406207b-2069-4e05-bc6b-3489ce6d1789",
+        "type": 2,
+        "logicalOperator": 0,
+        "conditions": [
+            {
+                "fieldName": "",
+                "value": "Manual Case",
+                "matchType": 0
+            }
+        ]
+    },
+    "steps": [
+        {
+            "workflowIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "An embedded workflow that can receive inputs and return an output.",
+            "pendingStepProperties": null,
+            "identifier": "0830a54a-9ccf-49cd-8551-c88fdc54fff4",
+            "originalStepIdentifier": "8af8ce6e-4684-4a4f-84ed-ef91d9fc2b53",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Submit Files For analysis_2",
+            "name": "Submit Files For analysis",
+            "integration": "Siemplify",
+            "actionProvider": "Flow",
+            "actionName": "NestedAction",
+            "type": 5,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowIdentifier",
+                    "value": "d95b0ac2-a0fc-4cac-ae04-1fb65c039fcc",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowInputs",
+                    "value": "[{\"FieldName\":\"File Paths\",\"Value\":\"[Process Attachments_1.FileUtilities_Save Base64 to File_1.JsonResult| \\\"files.file_path\\\"]\"}]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowSteps",
+                    "value": "[{\"actionName\":\"FalconSandbox_Submit File\",\"instanceName\":\"FalconSandbox_Submit File_1\",\"stepType\":0},{\"actionName\":\"AnyRun_AnalyzeFile\",\"instanceName\":\"AnyRun_AnalyzeFile_1\",\"stepType\":0},{\"actionName\":\"FalconSandbox_Wait For Job and Fetch Report\",\"instanceName\":\"FalconSandbox_Wait For Job and Fetch Report_1\",\"stepType\":0}]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowOutput",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": true,
+            "debugData": {
+                "originalWorkflowIdentifier": "6021c52b-1239-49fc-b0e6-a95ab13098c2",
+                "originalStepIdentifier": "8af8ce6e-4684-4a4f-84ed-ef91d9fc2b53",
+                "resultValue": null,
+                "resultJson": null,
+                "scopeEntitiesEnrichmentData": [],
+                "id": 0,
+                "creationTimeUnixTimeInMs": 0,
+                "modificationTimeUnixTimeInMs": 0,
+                "additionalProperties": {}
+            },
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1668533117983,
+            "modificationTimeUnixTimeInMs": 1668533118054,
+            "additionalProperties": {}
+        },
+        {
+            "workflowIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "An embedded workflow that can receive inputs and return an output.",
+            "pendingStepProperties": null,
+            "identifier": "1c2cf48a-8cf9-43ca-9472-1225fe4cbb8b",
+            "originalStepIdentifier": "db3eeae6-69f0-493d-960e-00c18c0686fd",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Entity Triage_1",
+            "name": "Entity Triage",
+            "integration": "Siemplify",
+            "actionProvider": "Flow",
+            "actionName": "NestedAction",
+            "type": 5,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowIdentifier",
+                    "value": "ae63dc06-e667-4122-8210-76ef00fad20e",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowInputs",
+                    "value": "[]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowSteps",
+                    "value": "[{\"actionName\":\"Tools_Add Alert Scoring Information\",\"instanceName\":\"Tools_Add Alert Scoring Information_2\",\"stepType\":0},{\"actionName\":\"Tools_Add Alert Scoring Information\",\"instanceName\":\"Tools_Add Alert Scoring Information_1\",\"stepType\":0},{\"actionName\":\"Tools_Add Alert Scoring Information\",\"instanceName\":\"Tools_Add Alert Scoring Information_SuspiciousURL\",\"stepType\":0},{\"actionName\":\"IfFlowCondition\",\"instanceName\":\"Suspicious IPs\",\"stepType\":4},{\"actionName\":\"VirusTotalV3_Enrich Hash\",\"instanceName\":\"VirusTotalV3_Enrich Hash_1\",\"stepType\":0},{\"actionName\":\"Tools_Add Alert Scoring Information\",\"instanceName\":\"Tools_Add Alert Scoring Information_6\",\"stepType\":0},{\"actionName\":\"Tools_Add Alert Scoring Information\",\"instanceName\":\"Tools_Add Alert Scoring Information_SuspiciousIP\",\"stepType\":0},{\"actionName\":\"VirusTotalV3_Enrich URL\",\"instanceName\":\"VirusTotalV3_Enrich URL_1\",\"stepType\":0},{\"actionName\":\"Siemplify_Remove Tag\",\"instanceName\":\"Siemplify_Remove Tag_1\",\"stepType\":0},{\"actionName\":\"IfFlowCondition\",\"instanceName\":\"Suspicious Hashes\",\"stepType\":4},{\"actionName\":\"IfFlowCondition\",\"instanceName\":\"Suspicious URLs\",\"stepType\":4},{\"actionName\":\"VirusTotalV3_Enrich IP\",\"instanceName\":\"VirusTotalV3_Enrich IP_1\",\"stepType\":0},{\"actionName\":\"TemplateEngine_Render Template\",\"instanceName\":\"VT_Widget\",\"stepType\":0},{\"actionName\":\"ThreatConnect_Enrich Entities\",\"instanceName\":\"ThreatConnect_Enrich Entities_1\",\"stepType\":0},{\"actionName\":\"Tools_Add Alert Scoring Information\",\"instanceName\":\"Tools_Add Alert Scoring Information_5\",\"stepType\":0}]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowOutput",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": true,
+            "debugData": null,
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1668533117983,
+            "modificationTimeUnixTimeInMs": 1668533118054,
+            "additionalProperties": {}
+        },
+        {
+            "workflowIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "An embedded workflow that can receive inputs and return an output.",
+            "pendingStepProperties": null,
+            "identifier": "4afd84cd-8dcb-4649-b7cd-c062b713c027",
+            "originalStepIdentifier": "eec1d785-b7f2-4b88-aea2-9233dfb28c5b",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Process Attachments_1",
+            "name": "Process Attachments",
+            "integration": "Siemplify",
+            "actionProvider": "Flow",
+            "actionName": "NestedAction",
+            "type": 5,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowIdentifier",
+                    "value": "0fecbec7-2112-46c4-aae9-b65ec03e5e41",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowInputs",
+                    "value": "[]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowSteps",
+                    "value": "[{\"actionName\":\"FileUtilities_Save Base64 to File\",\"instanceName\":\"FileUtilities_Save Base64 to File_1\",\"stepType\":0},{\"actionName\":\"FileUtilities_Get Attachment\",\"instanceName\":\"FileUtilities_Get Attachment_1\",\"stepType\":0},{\"actionName\":\"TemplateEngine_Render Template\",\"instanceName\":\"TemplateEngine_Render Template_1\",\"stepType\":0}]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "NestedWorkflowOutput",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": false,
+            "debugData": null,
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1668533117983,
+            "modificationTimeUnixTimeInMs": 1668533118054,
+            "additionalProperties": {}
+        },
+        {
+            "workflowIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "This condition determines the progress of the playbook. Conditions are built based on cases data (cases, alerts, vents, entities and environment properties) as-well as data that comes back from previous playbook steps.",
+            "pendingStepProperties": null,
+            "identifier": "556b9ea3-3fe6-4f52-8bde-95a933f6f0ed",
+            "originalStepIdentifier": "69e2642e-c5d2-4b36-b5f4-af88c3ac8eeb",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Condition_2",
+            "name": "Condition",
+            "integration": "Flow",
+            "actionProvider": "Flow",
+            "actionName": "IfFlowCondition",
+            "type": 4,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "Branches",
+                    "value": "[{\"LogicalOperator\":0,\"Conditions\":[{\"Operator\":5,\"FieldName\":\"[Process Attachments_1.FileUtilities_Get Attachment_1.ScriptResult]\",\"Type\":2,\"Value\":\"0\"},{\"Operator\":6,\"FieldName\":\"[Process Attachments_1.FileUtilities_Get Attachment_1.ScriptResult]\",\"Type\":2,\"Value\":\"Process Attachments_1.FileUtilities_Get Attachment_1.ScriptResult\"}],\"Order\":1,\"IsDefaultBranch\":false,\"Name\":\"Branch\"},{\"LogicalOperator\":0,\"Conditions\":[],\"Order\":2,\"IsDefaultBranch\":true,\"Name\":\"Branch\"}]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "ErrorFallbackBranch",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "SelectedScopeName",
+                    "value": "All entities",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": false,
+            "debugData": {
+                "originalWorkflowIdentifier": "6021c52b-1239-49fc-b0e6-a95ab13098c2",
+                "originalStepIdentifier": "69e2642e-c5d2-4b36-b5f4-af88c3ac8eeb",
+                "resultValue": null,
+                "resultJson": null,
+                "scopeEntitiesEnrichmentData": [],
+                "id": 0,
+                "creationTimeUnixTimeInMs": 0,
+                "modificationTimeUnixTimeInMs": 0,
+                "additionalProperties": {}
+            },
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1668533117983,
+            "modificationTimeUnixTimeInMs": 1668533118054,
+            "additionalProperties": {}
+        },
+        {
+            "workflowIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "Add given tag to the case the current alert is grouped to",
+            "pendingStepProperties": null,
+            "identifier": "567cdd52-7759-4706-b4d4-5bab3670ac69",
+            "originalStepIdentifier": "7dc7d57a-ca98-4c02-8d80-fdbcb0fa7bf6",
+            "isAutomatic": true,
+            "isSkippable": false,
+            "instanceName": "Siemplify_Case Tag_2",
+            "name": "Siemplify_Case Tag",
+            "integration": "Siemplify",
+            "actionProvider": "Scripts",
+            "actionName": "Siemplify_Case Tag",
+            "type": 0,
+            "parameters": [
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "AsyncActionTimeout",
+                    "value": "86400",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "AsyncPollingInterval",
+                    "value": "3600",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "FallbackIntegrationInstance",
+                    "value": "9ed109c1-77eb-46b0-8e84-8a65198d81c5",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "IntegrationInstance",
+                    "value": "AutomaticEnvironment",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "ScriptName",
+                    "value": "Siemplify_Case Tag",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "ScriptParametersEntityFields",
+                    "value": "{\"Tag\":\"Has Attachments\"}",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "SelectedScopeName",
+                    "value": "All entities",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": false,
+            "debugData": {
+                "originalWorkflowIdentifier": "6021c52b-1239-49fc-b0e6-a95ab13098c2",
+                "originalStepIdentifier": "7dc7d57a-ca98-4c02-8d80-fdbcb0fa7bf6",
+                "resultValue": "",
+                "resultJson": "",
+                "scopeEntitiesEnrichmentData": [],
+                "id": 0,
+                "creationTimeUnixTimeInMs": 0,
+                "modificationTimeUnixTimeInMs": 0,
+                "additionalProperties": {}
+            },
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1668533117983,
+            "modificationTimeUnixTimeInMs": 1668533118054,
+            "additionalProperties": {}
+        },
+        {
+            "workflowIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "workflowInstanceIdentifier": 0,
+            "caseId": 0,
+            "indicatorIdentifier": null,
+            "status": -1,
+            "executingUser": null,
+            "allowedToExecute": false,
+            "resultCode": 0,
+            "message": null,
+            "resultValue": null,
+            "results": [],
+            "targetEntities": [],
+            "resultEntities": [],
+            "properties": {},
+            "actionDef": null,
+            "blockStepId": null,
+            "jsonResultObject": null,
+            "integrationInstanceIdentifier": "00000000-0000-0000-0000-000000000000",
+            "integrationInstanceName": null,
+            "integrationInstanceEnvironment": null,
+            "description": "This step conditions the progress of the playbook according to a question the analyst has to answer manually, would be used most for questions which can't be answered automatically",
+            "pendingStepProperties": null,
+            "identifier": "a6d8616f-1bb4-4096-b510-5188bd8a1e15",
+            "originalStepIdentifier": "16992a6e-014d-44fc-94bf-18a0f5eedf23",
+            "isAutomatic": false,
+            "isSkippable": false,
+            "instanceName": "MultiChoiceQuestion_1",
+            "name": "MultiChoiceQuestion",
+            "integration": "Flow",
+            "actionProvider": "Flow",
+            "actionName": "MultiChoiceQuestion",
+            "type": 1,
+            "parameters": [
+                {
+                    "name": "Answers",
+                    "value": "{\"1\":\"Files Uploaded\",\"2\":\"No files to upload\"}",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "AssignedUsers",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "HasApprovalLink",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "MessageToAssignee",
+                    "value": "Upload any necessary attachments to Case [Case.id]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "PendingActionTimeout",
+                    "value": "3600",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "Question",
+                    "value": "Upload any necessary attachments to Case [Case.id]",
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                },
+                {
+                    "name": "SelectedScopeName",
+                    "value": null,
+                    "type": null,
+                    "isMandatory": false,
+                    "defaultValue": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "additionalProperties": {}
+                }
+            ],
+            "autoSkipOnFailure": false,
+            "isDebugMockData": false,
+            "debugData": null,
+            "id": 0,
+            "creationTimeUnixTimeInMs": 1668533117983,
+            "modificationTimeUnixTimeInMs": 1668533118054,
+            "additionalProperties": {}
+        }
+    ],
+    "stepsRelations": [
+        {
+            "condition": "",
+            "fromStep": "567cdd52-7759-4706-b4d4-5bab3670ac69",
+            "toStep": "0830a54a-9ccf-49cd-8551-c88fdc54fff4",
+            "destinationActionStatus": 0
+        },
+        {
+            "condition": "",
+            "fromStep": "4afd84cd-8dcb-4649-b7cd-c062b713c027",
+            "toStep": "1c2cf48a-8cf9-43ca-9472-1225fe4cbb8b",
+            "destinationActionStatus": 0
+        },
+        {
+            "condition": "2",
+            "fromStep": "a6d8616f-1bb4-4096-b510-5188bd8a1e15",
+            "toStep": "1c2cf48a-8cf9-43ca-9472-1225fe4cbb8b",
+            "destinationActionStatus": 0
+        },
+        {
+            "condition": "1",
+            "fromStep": "a6d8616f-1bb4-4096-b510-5188bd8a1e15",
+            "toStep": "4afd84cd-8dcb-4649-b7cd-c062b713c027",
+            "destinationActionStatus": 0
+        },
+        {
+            "condition": "",
+            "fromStep": "1c2cf48a-8cf9-43ca-9472-1225fe4cbb8b",
+            "toStep": "556b9ea3-3fe6-4f52-8bde-95a933f6f0ed",
+            "destinationActionStatus": 0
+        },
+        {
+            "condition": "1",
+            "fromStep": "556b9ea3-3fe6-4f52-8bde-95a933f6f0ed",
+            "toStep": "567cdd52-7759-4706-b4d4-5bab3670ac69",
+            "destinationActionStatus": 0
+        }
+    ],
+    "templateName": null,
+    "playbookType": 0,
+    "debugData": {
+        "debugBaseAlertId": null,
+        "debugAlertId": null
+    },
+    "entityAccessLevel": 2,
+    "defaultAccessLevel": 2,
+    "permissions": [],
+    "overviewTemplates": [
+        {
+            "id": 12,
+            "identifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+            "name": "Manual Case View",
+            "creator": null,
+            "playbookIdentifier": "1641a32d-2dd7-45d5-918f-b2d2f944f0f5",
+            "type": 0,
+            "widgets": [
+                {
+                    "metadata": {
+                        "id": 62,
+                        "identifier": "843edce6-e73f-479f-aa01-fa6b4d1ba699",
+                        "title": "Pending Actions",
+                        "width": 2,
+                        "order": 1,
+                        "description": "This Widget lists all playbook actions waiting for user input.",
+                        "type": 11,
+                        "templateIdentifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "pendingSteps": null,
+                        "type": 11,
+                        "widgetDefinitionScope": 0
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 63,
+                        "identifier": "5d220fb4-2ed3-4b77-a635-a5f8cdfcee97",
+                        "title": "Entities Highlights",
+                        "width": 1,
+                        "order": 2,
+                        "description": "This widget displays the highlighted fields for each entity.",
+                        "type": 10,
+                        "templateIdentifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "highlightFieldConfigs": [],
+                        "targetScope": 0,
+                        "type": 10,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 64,
+                        "identifier": "e563f08f-b188-43d1-af69-3346683b7afb",
+                        "title": "Alert Score",
+                        "width": 1,
+                        "order": 3,
+                        "description": "",
+                        "type": 3,
+                        "templateIdentifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "htmlContent": "<!DOCTYPE html>\r\n<html>\r\n\r\n  <head>\r\n    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i\" rel=\"stylesheet\">\r\n    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>\r\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">\r\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>\r\n    \r\n    <style>\r\n      g#meter path {\r\n        display: none;\r\n      }\r\n\r\n      .cardContainer {\r\n        float: left;\r\n        width: 100%;\r\n        max-width: 100%;\r\n        min-height: 100px;\r\n        align-items: center;\r\n        background: #FFFFFF;\r\n      }\r\n\r\n      .cusDivider {\r\n        background: #D3D8EA;\r\n        flex: none;\r\n        height: 1px;\r\n        align-self: stretch;\r\n        flex-grow: 0;\r\n        float: left;\r\n        margin: 14px 0px;\r\n        width: 100%;\r\n      }\r\n\r\n      .cusListRec {\r\n        float: left;\r\n        width: 100%;\r\n        margin: 5px 0;\r\n      }\r\n\r\n      .cardDetails {\r\n        width: 100%;\r\n        float: left;\r\n      }\r\n\r\n      .cuslfttop {\r\n        float: left;\r\n        width: 80%;\r\n      }\r\n\r\n      .cusrghttop {\r\n        float: left;\r\n        width: 20%;\r\n        text-align: right;\r\n      }\r\n\r\n      .detailCnt {\r\n        float: left;\r\n        width: 98%;\r\n      }\r\n\r\n      .cardLgImg {\r\n        width: 10%;\r\n        float: left;\r\n      }\r\n\r\n      p {\r\n        margin: 0px;\r\n      }\r\n\r\n      .cardImageName {\r\n        width: 100%;\r\n        float: left;\r\n        text-align: center;\r\n      }\r\n\r\n      .cardImageName img {\r\n        border-radius: 50%;\r\n        max-width: 70%;\r\n      }\r\n\r\n      span.cardName {\r\n        clear: both;\r\n        width: 100%;\r\n        letter-spacing: 0em;\r\n        float: left;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 20px;\r\n        line-height: 27px;\r\n        display: flex;\r\n        align-items: center;\r\n        color: #0F1029;\r\n        margin-bottom: 10px;\r\n      }\r\n\r\n      span.cardUserName {\r\n        clear: both;\r\n        width: 100%;\r\n        letter-spacing: 0em;\r\n        float: left;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 16px;\r\n        line-height: 19px;\r\n        /*display: flex;*/\r\n        align-items: center;\r\n        color: #0F1029;\r\n        /*margin-bottom:10px;\t*/\r\n        margin-top: 6px;\r\n      }\r\n\r\n      span.cardRole {\r\n        width: 100%;\r\n        letter-spacing: 0em;\r\n        float: left;\r\n        height: 18px;\r\n        left: 22px;\r\n        top: 24px;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        font-size: 12px;\r\n        line-height: 18px;\r\n        align-items: center;\r\n        text-align: center;\r\n        color: #4E4F63;\r\n        flex: none;\r\n        order: 1;\r\n        flex-grow: 0;\r\n        margin: 6px 0px;\r\n      }\r\n\r\n      span.cusDetailrft {\r\n        height: 18px;\r\n        margin-bottom: 17px;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        font-size: 14px;\r\n        line-height: 135%;\r\n        display: flex;\r\n        align-items: center;\r\n        color: #4E4F63;\r\n      }\r\n\r\n      span.cusDetaillft {\r\n        height: 18px;\r\n        margin-bottom: 17px;\r\n        margin-right: 20px;\r\n        float: left;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: 600;\r\n        font-size: 14px;\r\n        line-height: 19px;\r\n        display: flex;\r\n        align-items: center;\r\n        color: #0F1029;\r\n      }\r\n\r\n      span.cusSubHeader {\r\n        width: 100%;\r\n        margin: 15px 0;\r\n        float: left;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 14px;\r\n        line-height: 19px;\r\n        display: flex;\r\n        align-items: center;\r\n        color: #0F1029;\r\n      }\r\n\r\n      .activeStatus {\r\n        color: #1EC6B0 !important;\r\n      }\r\n\r\n      span.activeStatusDot {\r\n        width: 8px;\r\n        height: 8px;\r\n        background: #1EC6B0;\r\n        border-radius: 50%;\r\n        margin-right: 8px;\r\n        float: left;\r\n        display: table-caption;\r\n        margin-top: 6px;\r\n      }\r\n\r\n      span.activeStatusDotRed {\r\n        width: 8px;\r\n        height: 8px;\r\n        background: #EC3F3F;\r\n        border-radius: 50%;\r\n        margin-right: 10px;\r\n        float: left;\r\n        display: table-caption;\r\n        margin-top: 2px;\r\n      }\r\n\r\n      .cardLgImg img {\r\n        position: static;\r\n        width: 36.18px;\r\n        height: 35px;\r\n        left: 0px;\r\n        top: 0px;\r\n        flex: none;\r\n        order: 0;\r\n        flex-grow: 0;\r\n        margin: 0px 10px;\r\n      }\r\n\r\n      .listCnt {\r\n        float: left;\r\n        width: 100%;\r\n        padding: 5px 0;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        font-size: 14px;\r\n        line-height: 18px;\r\n        /* identical to box height, or 129% */\r\n\r\n        display: flex;\r\n        align-items: center;\r\n\r\n        /* LT / 800 (Text&Icons Secondary) */\r\n\r\n        color: #4E4F63;\r\n\r\n\r\n        /* Inside Auto Layout */\r\n\r\n        flex: none;\r\n        order: 1;\r\n        flex-grow: 1;\r\n\r\n      }\r\n\r\n      .textListCnt {\r\n        float: left;\r\n        width: 100%;\r\n        padding: 5px 0;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        font-size: 14px;\r\n        line-height: 18px;\r\n        /* identical to box height, or 129% */\r\n\r\n        display: flex;\r\n        align-items: center;\r\n\r\n        /* LT / 800 (Text&Icons Secondary) */\r\n\r\n        color: #4E4F63;\r\n\r\n\r\n        /* Inside Auto Layout */\r\n\r\n        flex: none;\r\n        order: 1;\r\n        flex-grow: 1;\r\n      }\r\n\r\n      .cusInnerlefttext {\r\n        width: 20%;\r\n        float: left;\r\n        margin-right: 20px;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: 600;\r\n        font-size: 14px;\r\n        line-height: 160%;\r\n        color: #4E4F63;\r\n      }\r\n\r\n      .cusInnerrighttext {\r\n        width: 75%;\r\n        float: left;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: 600;\r\n        font-size: 14px;\r\n        line-height: 160%;\r\n        color: #4E4F63;\r\n      }\r\n\r\n      .imagePlacement {\r\n        margin: 10px 0;\r\n        max-width: 100%;\r\n      }\r\n\r\n      .cusNameMitre {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        float: left;\r\n        /* margin: 12px 0 5px 0; */\r\n        font-size: 14px;\r\n        line-height: 19px;\r\n        width: 30%;\r\n        align-items: center;\r\n        color: #4E4F63;\r\n\r\n      }\r\n\r\n      .cusMitreDesc {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: 600;\r\n        font-size: 14px;\r\n        line-height: 19px;\r\n        color: #0F1029;\r\n        float: left;\r\n      }\r\n\r\n      .mnClsContainer {\r\n        float: left;\r\n        width: 100%;\r\n      }\r\n\r\n      .cntLeftSide {\r\n        float: left;\r\n        width: 45%;\r\n        margin-right: 25px;\r\n      }\r\n\r\n      .cntRightSide {\r\n        float: left;\r\n        width: 50%;\r\n        margin-top: 53px;\r\n      }\r\n\r\n      .cusProfileName {\r\n        clear: both;\r\n        width: 100%;\r\n        letter-spacing: 0em;\r\n        float: left;\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        text-align: center;\r\n        font-size: 17px;\r\n        line-height: 24px;\r\n        align-items: center;\r\n        color: #0F1029;\r\n      }\r\n\r\n      .cusWdgNumber {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 174px;\r\n        line-height: 108.95%;\r\n        align-items: center;\r\n        text-align: right;\r\n        width: 100%;\r\n        color: #1EC6B0;\r\n        text-shadow: 1px 1px 0px #1a9181;\r\n      }\r\n\r\n      .cusWdgNumberTitle {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 26px;\r\n        line-height: 108.95%;\r\n        display: flex;\r\n        align-items: center;\r\n        color: #4E4F63;\r\n        margin-top: 50px;\r\n        margin-bottom: 10px;\r\n      }\r\n\r\n      .cusWdgNumberText {\r\n        font-family: Digital Numbers;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        font-size: 70px;\r\n        line-height: 108.95%;\r\n        display: flex;\r\n        align-items: center;\r\n        text-align: center;\r\n        /*letter-spacing: -0.215em;*/\r\n        color: #4E4F63;\r\n      }\r\n\r\n      .cusTitleWidget {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 26px;\r\n        line-height: 108.95%;\r\n        align-items: center;\r\n        color: #4E4F63;\r\n        width: 100%;\r\n        margin-bottom: 15px;\r\n        margin-top: -30px;\r\n      }\r\n\r\n      .cntchartFullWidth {\r\n        margin: 0 auto;\r\n        width: 100%;\r\n        text-align: center;\r\n        align-items: center;\r\n        justify-content: center;\r\n      }\r\n\r\n      .cusWdgText {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: normal;\r\n        font-size: 12px;\r\n        line-height: 135%;\r\n        display: flex;\r\n        align-items: center;\r\n        color: #4E4F63;\r\n      }\r\n\r\n      .tableData {\r\n        flex-direction: row;\r\n        justify-content: center;\r\n        align-items: center;\r\n        background: #FFFFFF;\r\n        width: 100%\r\n      }\r\n\r\n      .tableData th {\r\n        /*background: #FCFA9E;*/\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-weight: bold;\r\n        font-size: 12px;\r\n        line-height: 108.95%;\r\n        align-items: center;\r\n        /*color: #767112;*/\r\n        height: 40px;\r\n        min-width: 60px;\r\n        border-bottom: 1px solid #000000;\r\n        text-align: left;\r\n        padding: 0 10px;\r\n      }\r\n\r\n      .tableData td {\r\n        font-family: Open Sans;\r\n        font-style: normal;\r\n        font-size: 10px;\r\n        line-height: 135%;\r\n        align-items: center;\r\n        margin: 0px 10px;\r\n        height: 40px;\r\n        min-width: 60px;\r\n        border-bottom: 1px solid #ced4da;\r\n        padding: 0 3px;\r\n        text-transform: capitalize;\r\n      }\r\n.bg-high {\r\n      --bs-bg-opacity: 1;\r\n      background-color: rgba(245, 164, 66,var(--bs-bg-opacity))!important\r\n      }\r\n      .bg-medium {\r\n      --bs-bg-opacity: 1;\r\n      background-color: rgba(245, 212, 66,var(--bs-bg-opacity))!important\r\n      }\r\n        .bg-low {\r\n      --bs-bg-opacity: 1;\r\n      background-color: rgba(193, 224, 241,var(--bs-bg-opacity))!important\r\n      }\r\n      .source_box {\r\n          overflow-wrap: break-word; \r\n      }\r\n      }\r\n    </style>\r\n\r\n\r\n  </head>\r\n\r\n  <body>\r\n\r\n\r\n    <div class=\"cardContainer\">\r\n      <div class=\"cntchartFullWidth\">\r\n        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"202.969\" height=\"135.074\" viewBox=\"0 0 302.969 225.074\">\r\n          <g id=\"Group_meter\" data-name=\"Group meter\" transform=\"translate(232 1511.895)\">\r\n            <g id=\"colorfull\" transform=\"translate(0 -400)\">\r\n              <path id=\"_10\" data-name=\"10\" d=\"M-64.712,131.323a84.966,84.966,0,0,0-4.262,24.736,2.038,2.038,0,0,1-2.024,2h-52.649a1.98,1.98,0,0,1-1.411-.585,1.98,1.98,0,0,1-.575-1.415,141.367,141.367,0,0,1,7.482-43.579\" transform=\"translate(-106.367 -1108.451)\" fill=\"#c1e0f1\" />\r\n              <path id=\"_30\" data-name=\"30\" d=\"M-64.712,131.323a84.966,84.966,0,0,0-4.262,24.736,2.038,2.038,0,0,1-2.024,2h-52.649a1.98,1.98,0,0,1-1.411-.585,1.98,1.98,0,0,1-.575-1.415,141.367,141.367,0,0,1,7.482-43.579\" transform=\"translate(-7.845 -1093.507) rotate(36.011)\" fill=\"#1ec6b0\" />\r\n              <path id=\"_20\" data-name=\"20\" d=\"M-118.248,112.695c.088-.26.275-.736.46-1.271a141.139,141.139,0,0,1,18.1-35.142,1.977,1.977,0,0,1,1.3-.807,1.977,1.977,0,0,1,1.484.358l42.579,30.939a2.036,2.036,0,0,1,.461,2.807,85.7,85.7,0,0,0-10.641,21.128c0,.008-.167.471-.268.775\" transform=\"translate(-106.367 -1108.451)\" fill=\"#c1e0f1\" />\r\n              <path id=\"_40\" data-name=\"40\" d=\"M-118.248,112.695c.088-.26.275-.736.46-1.271a141.139,141.139,0,0,1,18.1-35.142,1.977,1.977,0,0,1,1.3-.807,1.977,1.977,0,0,1,1.484.358l42.579,30.939a2.036,2.036,0,0,1,.461,2.807,85.7,85.7,0,0,0-10.641,21.128c0,.008-.167.471-.268.775\" transform=\"translate(-7.845 -1093.507) rotate(36.011)\" fill=\"#1ec6b0\" />\r\n              <path id=\"_70\" data-name=\"70\" d=\"M0,18.787c.088.26.275.736.46,1.271A141.139,141.139,0,0,0,18.562,55.2a1.977,1.977,0,0,0,2.781.449L63.922,24.71a2.036,2.036,0,0,0,.461-2.807A85.7,85.7,0,0,1,53.742.775c0-.008-.167-.471-.268-.775\" transform=\"translate(19.765 -1056.641) rotate(143.989)\" fill=\"#faa32b\" />\r\n              <path id=\"_50\" data-name=\"50\" d=\"M0,18.787c.088.26.275.736.46,1.271A141.139,141.139,0,0,0,18.562,55.2a1.977,1.977,0,0,0,2.781.449L63.922,24.71a2.036,2.036,0,0,0,.461-2.807A85.7,85.7,0,0,1,53.742.775c0-.008-.167-.471-.268-.775\" transform=\"translate(-63.702 -1094.581) rotate(108)\" fill=\"#f7f25e\" />\r\n              <path id=\"_80\" data-name=\"80\" d=\"M60.921,26.736A84.966,84.966,0,0,1,56.659,2a2.038,2.038,0,0,0-2.024-2H1.986A1.98,1.98,0,0,0,0,2,141.367,141.367,0,0,0,7.482,45.58\" transform=\"translate(41.361 -1039.48) rotate(143.989)\" fill=\"#faa32b\" />\r\n              <path id=\"_60\" data-name=\"60\" d=\"M60.921,26.736A84.966,84.966,0,0,1,56.659,2a2.038,2.038,0,0,0-2.024-2H1.986A1.98,1.98,0,0,0,0,2,141.367,141.367,0,0,0,7.482,45.58\" transform=\"translate(-36.144 -1093.392) rotate(108)\" fill=\"#f7f25e\" />\r\n              <path id=\"_90\" data-name=\"90\" d=\"M-53.5,112.695c-.088-.26-.275-.736-.46-1.271a141.138,141.138,0,0,0-18.1-35.142,1.977,1.977,0,0,0-1.3-.807,1.977,1.977,0,0,0-1.484.358l-42.579,30.939a2.036,2.036,0,0,0-.461,2.807,85.7,85.7,0,0,1,10.641,21.128c0,.008.167.471.268.775\" transform=\"translate(117.084 -1108.451)\" fill=\"#ff4230\" />\r\n              <path id=\"_100\" data-name=\"100\" d=\"M-125.633,131.323a84.965,84.965,0,0,1,4.262,24.736,2.038,2.038,0,0,0,2.024,2H-66.7a1.98,1.98,0,0,0,1.411-.585,1.98,1.98,0,0,0,.575-1.415A141.367,141.367,0,0,0-72.2,112.48\" transform=\"translate(135.683 -1108.451)\" fill=\"#ff4230\" />\r\n            </g>\r\n            <g id=\"meter\" transform=\"translate(0 -400)\">\r\n              <path id=\"meter_0\" d=\"M167.943,156.89a20.306,20.306,0,0,1-35.663-19.43c5.366-9.848,72.235-90.14,72.235-90.14S173.308,147.042,167.943,156.89Z\" transform=\"translate(-141.724 -749.998) rotate(-118)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_1\" d=\"M167.943,156.89a20.306,20.306,0,0,1-35.663-19.43c5.366-9.848,72.235-90.14,72.235-90.14S173.308,147.042,167.943,156.89Z\" transform=\"translate(-176.541 -763.614) rotate(-108)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_2\" d=\"M38.141,109.57A20.306,20.306,0,0,1,2.478,90.14C7.844,80.292,74.713,0,74.713,0S43.506,99.722,38.141,109.57Z\" transform=\"translate(-181.158 -926.229) rotate(-94.012)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_3\" d=\"M38.141,109.57A20.306,20.306,0,0,1,2.478,90.14C7.844,80.292,74.713,0,74.713,0S43.506,99.722,38.141,109.57Z\" transform=\"translate(-184.163 -958.47) rotate(-76)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_5\" d=\"M38.141,109.57A20.306,20.306,0,0,1,2.478,90.14C7.844,80.292,74.713,0,74.713,0S43.506,99.722,38.141,109.57Z\" transform=\"translate(-147.213 -1032.119) rotate(-28)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_4\" d=\"M166.374,156.89a20.306,20.306,0,0,0,35.663-19.43c-5.366-9.848-72.235-90.14-72.235-90.14S161.009,147.042,166.374,156.89Z\" transform=\"translate(-266.802 -1101.277)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_6\" d=\"M166.374,156.89a20.306,20.306,0,0,0,35.663-19.43c-5.366-9.848-72.235-90.14-72.235-90.14S161.009,147.042,166.374,156.89Z\" transform=\"matrix(0.799, 0.602, -0.602, 0.799, -138.92, -1182.511)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_7\" d=\"M167.943,156.89a20.306,20.306,0,0,1-35.663-19.43c5.366-9.848,72.235-90.14,72.235-90.14S173.308,147.042,167.943,156.89Z\" transform=\"translate(-232.014 -1101.277)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_8\" d=\"M38.141,10.594A20.306,20.306,0,1,0,2.478,30.024c5.366,9.848,72.235,90.14,72.235,90.14S43.506,20.442,38.141,10.594Z\" transform=\"translate(-96.83 -929.4) rotate(-104)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_9\" d=\"M38.141,10.594A20.306,20.306,0,1,0,2.478,30.024c5.366,9.848,72.235,90.14,72.235,90.14S43.506,20.442,38.141,10.594Z\" transform=\"translate(-103.683 -933.828) rotate(-85)\" fill=\"#5b5faa\" />\r\n              <path id=\"meter_10\" d=\"M38.142,10.6A20.306,20.306,0,0,0,2.479,30.025c5.366,9.848,72.235,90.14,72.235,90.14S43.507,20.443,38.142,10.6Z\" transform=\"matrix(0.469, -0.883, 0.883, 0.469, -107.75, -943.236)\" fill=\"#5b5faa\" />\r\n            </g>\r\n            <circle id=\"Ellipse_55\" data-name=\"Ellipse 55\" cx=\"8.622\" cy=\"8.622\" r=\"8.622\" transform=\"translate(-89.645 -1363.422)\" fill=\"#2e4166\" stroke=\"#fff\" stroke-width=\"1\" />\r\n          </g>\r\n        </svg>\r\n\r\n      </div>\r\n      <div class=\"cusTitleWidget\" id=\"field1\"></div>\r\n      <div class=\"cusWdgText\" id=\"field2\">\r\n        <div class=\"cardContainer\">\r\n          <table class=\"tableData\" cellspacing=\"0\" cellpadding=\"0\">\r\n            <tbody>\r\n              <tr id=\"empty_score\">\r\n                <td colspan=\"7\">\r\n                  <div id=\"headers_spinner\" class=\"d-flex justify-content-center\">\r\n                    <div class=\"spinner-border\" role=\"status\">\r\n                      <span class=\"visually-hidden\">Loading...</span>\r\n                    </div>\r\n                  </div>\r\n                </td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <script src=\"https://code.jquery.com/jquery-3.5.1.min.js\"></script>\r\n    <script>\r\n      $(document).ready(function() {\r\n        var minScore = '0';\r\n        var maxScore = '4';\r\n\r\n        var ActualScoreValue = '[Alert.ALERT_SCORE]';\r\n        var ScoreValue = ActualScoreValue;\r\n\r\n        var calcPercentage = '';\r\n        var finalPercentage = '';\r\n\r\n        calcPercentage = parseInt((ScoreValue * 100) / maxScore);\r\n        calcPercentage = parseInt((calcPercentage / 10));\r\n        var avg = calcPercentage;\r\n        finalPercentage = Math.round(avg);\r\n\r\n        $(\"#meter_\" + calcPercentage).show();\r\n\r\n\r\n        /*Update below variable value with placeholder*/\r\n        var field1 = 'Alert Severity: [Alert.ALERT_SEVERITY]';\r\n        //var field2 = 'The Alert Score is computed based on observations from the email.';\r\n        try {\r\n          var td = [Alert.ALERT_SCORE_INFO]\r\n;\r\n          var strData = JSON.stringify(td);\r\n          var result = JSON.parse(strData);\r\n          var dataList = '';\r\n          $(\"#empty_score\").remove()\r\n          $.each(result, function(index) {\r\n          console.log(result[index])          \r\n            dataList = '<tr class=\"bg-secondary p-2 text-white bg-opacity-75\">';\r\n            dataList += '<th colspan=\"4\">Category: ' + result[index]['category'] + '</th>';\r\n            dataList += '</tr>';\r\n            $(\"table.tableData\").append(dataList);\r\n            $(\"table.tableData\").append('<tr class=\"bg-secondary p-2 text-dark bg-opacity-50\">><th>Source</th><th>Name</th><th>Description</th><th>Score</th></tr>');\r\n            $.each(result[index]['score_data'], function(idx) {\r\n                scoreRow = '';\r\n                background_class = '';\r\n                if (this['severity'] == \"Low\") {\r\n                  background_class = 'class=\"bg-low bg-gradient text-dark\"';\r\n                }\r\n                if (this['severity'] == \"Medium\") {\r\n                  background_class = 'class=\"bg-medium bg-gradient text-dark\"';\r\n                }\r\n                if (this['severity'] == \"High\") {\r\n                  background_class = 'class=\"bg-high bg-gradient text-dark\"';\r\n                }\r\n                if (this['severity'] == \"Critical\") {\r\n                  background_class = 'class=\"bg-danger bg-gradient text-white\"';\r\n                }\r\n                \r\n                scoreRow += '<tr ' + background_class + '>';\r\n                scoreRow += '<td class=\"source_box\">' + this['source'].replace(\",\", \", \") + '</td>';\r\n                scoreRow += '<td>' + this['score_name'] + '</td>';\r\n                scoreRow += '<td>' + this['description'] + '</td>';\r\n                scoreRow += '<td>' + this['severity']  + '</td>';\r\n                scoreRow += '</tr>';\r\n                $(\"table.tableData\").append(scoreRow);               \r\n            });\r\n          });\r\n        } catch (error) {\r\n          console.log('Data not loaded yet: ' + error);\r\n        }\r\n        $(\"#field1\").html(field1);\r\n      });\r\n      /*End*/\r\n      \r\n\r\n    </script>\r\n  </body>\r\n\r\n</html>\r\n",
+                        "htmlHeight": 450,
+                        "safeRendering": false,
+                        "type": 3,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 65,
+                        "identifier": "3d78ac80-cde9-45d8-ae88-f322248cf54d",
+                        "title": "VT Augmented Report",
+                        "width": 2,
+                        "order": 4,
+                        "description": "",
+                        "type": 3,
+                        "templateIdentifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [
+                                {
+                                    "fieldName": "[Entity Triage_1.VT_Widget.ScriptResult]",
+                                    "matchType": 6,
+                                    "value": "Entity Triage_1.VT_Widget.ScriptResult"
+                                }
+                            ],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "htmlContent": "[Entity Triage_1.VT_Widget.ScriptResult]",
+                        "htmlHeight": 450,
+                        "safeRendering": false,
+                        "type": 3,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 66,
+                        "identifier": "5e421824-fcc6-4409-8c44-e445e863674c",
+                        "title": "Insights",
+                        "width": 2,
+                        "order": 5,
+                        "description": "This widget contains all the Insights from the Playbook Insights actions, general Insights and any other Insights you have added. They will be presented in HTML format",
+                        "type": 15,
+                        "templateIdentifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "insights": null,
+                        "type": 15,
+                        "widgetDefinitionScope": 2
+                    }
+                },
+                {
+                    "metadata": {
+                        "id": 72,
+                        "identifier": "35c0f104-f480-4acb-987a-2528820c95c8",
+                        "title": "HTML",
+                        "width": 2,
+                        "order": 12,
+                        "description": "",
+                        "type": 3,
+                        "templateIdentifier": "b25ceda6-5db1-4bb3-bd6d-7adcfc022fa9",
+                        "predefinedWidgetTemplateIdentifier": null,
+                        "actionIdentifier": null,
+                        "stepIdentifier": null,
+                        "presentIfEmpty": false,
+                        "conditionsGroup": {
+                            "conditions": [],
+                            "logicalOperator": 0
+                        }
+                    },
+                    "config": {
+                        "htmlContent": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <script src=\"https://code.jquery.com/jquery-1.10.2.min.js\"></script>\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js\"></script>\n    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i\" rel=\"stylesheet\">\n    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>\n    <link href='https://www.siemplify.co/wp-content/themes/siemplify/assets/fonts/stylesheet.css?version=99601167404751'\n        rel='stylesheet'>\n    <style>\n        .content {\n            max-width: 650px !important;\n        }\n        .chat-list {\n            padding: 0;\n            font-size: .8rem;\n        }\n        .chat-list li {\n            margin-bottom: 10px;\n            overflow: auto;\n            color: #ffffff;\n        }\n        .chat-list .chat-img {\n            float: left;\n            width: 48px;\n        }\n        .chat-list .chat-img img {\n            -webkit-border-radius: 50px;\n            -moz-border-radius: 50px;\n            border-radius: 50px;\n            width: 100%;\n        }\n        .card {\n            border: 0px solid rgba(0, 0, 0, .125);\n            border-radius: 0;\n        }\n        .chat-list .chat-message {\n            -webkit-border-radius: 0px 8px 8px 8px;\n            -moz-border-radius: 0px 8px 8px 8px;\n            border-radius: 0px 8px 8px 8px;\n            background: #E5E8F2;\n            display: inline-block;\n            padding: 10px 10px;\n            position: relative;\n        }\n        .chat-list .chat-message:before {\n            /* content: \"\"; */\n            position: absolute;\n            top: 15px;\n            width: 0;\n            height: 0;\n        }\n        .chat-list .chat-message h5 {\n            margin: 0 0 5px 0;\n            font-weight: 600;\n            line-height: 100%;\n            font-size: .9rem;\n        }\n        .chat-list .chat-message p {\n            margin: 0;\n            padding: 0;\n            font-family: Open Sans;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 12px;\n            line-height: 16px;\n            display: flex;\n            align-items: center;\n            color: #4E4F63;\n        }\n        .chat-list .chat-body {\n            margin-left: 10px;\n            float: left;\n            width: 59%;\n        }\n        span.cusDateTime {\n            font-family: Open Sans;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 10px;\n            line-height: 108.95%;\n            align-items: center;\n            color: #4E4F63;\n        }\n        .chat-list .in .chat-message:before {\n            left: -12px;\n            border-bottom: 20px solid transparent;\n            border-right: 20px solid #5a99ee;\n        }\n        .chat-list .out .chat-img {\n            float: right;\n        }\n        .chat-list .out .chat-body {\n            float: right;\n            margin-right: 10px;\n            text-align: right;\n        }\n        .chat-list .out .chat-message {\n            background: #55A5F4;\n        }\n        .chat-list .out .chat-message p {\n            font-family: Open Sans;\n            font-style: normal;\n            font-weight: normal;\n            font-size: 12px;\n            line-height: 16px;\n            display: flex;\n            align-items: center;\n            text-align: right;\n            color: #FFFFFF;\n        }\n        .chat-list .out .chat-message:before {\n            right: -12px;\n            border-bottom: 20px solid transparent;\n            border-left: 20px solid #fc6d4c;\n        }\n        .card .card-header:first-child {\n            -webkit-border-radius: 0.3rem 0.3rem 0 0;\n            -moz-border-radius: 0.3rem 0.3rem 0 0;\n            border-radius: 0.3rem 0.3rem 0 0;\n        }\n        .card .card-header {\n            background: #17202b;\n            border: 0;\n            font-size: 1rem;\n            padding: .65rem 1rem;\n            position: relative;\n            font-weight: 600;\n            color: #ffffff;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container content\">\n        <div class=\"row\">\n            <div class=\"col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12\">\n                <div class=\"card\">\n                    <div class=\"card-body height3\">\n                        <ul class=\"chat-list\" id=\"chatListData\">\n                        </ul>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <script>\n        $(document).ready(function () {\n            var jsonData = { \"chatData\": [{ \"type\": \"in\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/IO52DP4Q85KB/64.png\" }, { \"type\": \"out\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/VGSNSV21ZUL7/64.png\" }, { \"type\": \"in\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/IO52DP4Q85KB/64.png\" }, { \"type\": \"out\", \"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam\", \"datetime\": \"2020-04-01 01:55:11\", \"photo_url\": \"https://us.v-cdn.net/6031970/uploads/VGSNSV21ZUL7/64.png\" }] };\n            var mhtml = '';\n            $.each(jsonData.chatData, function (key, val) {\n                if (val.type == 'in') {\n                    mhtml += '<li class=\"in\"><div class=\"chat-img\"><img alt=\"Avtar\" src=\"' + val.photo_url + '\"></div><div class=\"chat-body\"><div class=\"chat-message\"><p>' + val.text + '</p></div><span class=\"cusDateTime\">' + val.datetime + '</span></div></li>';\n                } else {\n                    mhtml += '<li class=\"out\"><div class=\"chat-img\"><img alt=\"Avtar\" src=\"' + val.photo_url + '\"></div><div class=\"chat-body\"><div class=\"chat-message\"><p>' + val.text + '</p></div><span class=\"cusDateTime\">' + val.datetime + '</span></div></li>';\n                }\n            });\n            $('#chatListData').append(mhtml);\n        });\n    </script>\n</body>\n</html>",
+                        "htmlHeight": 425,
+                        "safeRendering": false,
+                        "type": 3,
+                        "widgetDefinitionScope": 2
+                    }
+                }
+            ],
+            "roles": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "creationTimeUnixTimeInMs": 1668520795679
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+[
+    {
+        "id": 0,
+        "source": "Microsoft CASB",
+        "product": "Windows:AccessDisabledAccounts",
+        "eventName": "Access Disabled Accounts",
+        "familyName": "Login",
+        "familyId": 0,
+        "mappingStatus": null,
+        "exampleEventFields": []
+    }
+]

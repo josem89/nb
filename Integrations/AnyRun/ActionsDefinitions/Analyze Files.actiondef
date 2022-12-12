@@ -1,0 +1,289 @@
+{
+    "id": 0,
+    "type": 1,
+    "name": "Analyze Files",
+    "description": "Create Any.Run file analysis task. Note: Action is not working with Siemplify entities, full path to file to analyze should be provided as action input parameter.",
+    "script": "from SiemplifyUtils import output_handler\nfrom SiemplifyAction import SiemplifyAction, ScriptResult\nfrom Copy_of_AnyRunManager import AnyRunManager\nfrom TIPCommon import extract_configuration_param, extract_action_param\nfrom ScriptResult import EXECUTION_STATE_COMPLETED, EXECUTION_STATE_FAILED, EXECUTION_STATE_INPROGRESS\nfrom SiemplifyDataModel import EntityTypes\nfrom AnyRunExceptions import AnyRunError\nfrom constants import (\n    INTEGRATION_NAME,\n    ANALYZE_FILE_ACTION,\n    NETWORK_STATUS_MAPPING,\n    STATUS_IN_PROGRESS,\n    NETWORK_PRIVACY_TYPE,\n    FILE_ELEMENT\n)\nimport json\nimport sys\n\ndef start_operation(siemplify, anyrun_manager, wait_for_report, element_for_analysis, os_version ,operation_system_bitness, os_env_type,\n                                                            network_connection_status, fakenet_feature_status,\n                                                            use_tor, opt_network_mitm, opt_network_geo,\n                                                            opt_network_heavyevasion, opt_privacy_type,\n                                                            obj_ext_startfolder, opt_timeout,active_session):\n    \"\"\"\n    Function that requests the analysis\n    :param siemplify: SiemplifyAction object.\n    :param anyrun_manager: AnyRun manager object.\n    :param wait_for_report: {bool} Indicates if the action should be async or return the task id\n    :param element_for_analysis: {str} File that should be analyzed\n    :param os_env_type{string} Environment Type \n    :param os_version{string} Windows OS Version\n    :param operation_system_bitness{string} Operation System Bitness\n    :param network_connection_status{bool} Whether or now the Network connection status should be used\n    :param fakenet_feature_status{bool} Whether or now the FakeNet should be used\n    :param use_tor{bool} Whether or now the Tor should be used\n    :param opt_network_geo {string} Which GEO Location to use\n    :param opt_network_mitm {bool} Whether or now the MITM should be used\n    :param opt_network_heavyevasion{bool} Whether or now the HeavyEvasion should be used\n    :param opt_privacy_type {string}  Privacy Type\n    :param opt_timeout {int} Timeout in seconds            \n    :param active_session{int} How many seconds to wait for the available session\n    :param obj_ext_startfolder {string} Type of the startfolder\n    \"\"\"\n    \n    status = EXECUTION_STATE_INPROGRESS\n    try:\n        result_value = []\n        json_result=[]\n        for file in element_for_analysis:\n            \n            task = anyrun_manager.analyze(element_type=FILE_ELEMENT,element_for_analysis=file, os_version=os_version ,operation_system_bitness=operation_system_bitness, os_env_type=os_env_type,\n                                                    network_connection_status=network_connection_status, fakenet_feature_status=fakenet_feature_status,\n                                                    use_tor=use_tor, opt_network_mitm=opt_network_mitm, opt_network_geo=opt_network_geo,\n                                                    opt_network_heavyevasion=opt_network_heavyevasion, opt_privacy_type=opt_privacy_type,\n                                                    obj_ext_startfolder=obj_ext_startfolder, opt_timeout=opt_timeout, active_session=active_session)\n        \n            if task.task_id:\n                result_value.append({\n                            \"task_id\": task.task_id\n                        })\n                json_result.append(task.raw_data)\n            \n        if result_value:        \n            \n            result_value = json.dumps(result_value)\n            output_message = \"Created analysis tasks for the following Files: {}\".format(\",\".join(element_for_analysis))\n            \n        else:\n            result_value=False\n            output_message = \"No Any.Run analysis tasks were created for the following Files: {}\".format(element_for_analysis)\n            status = EXECUTION_STATE_COMPLETED\n \n    except AnyRunError as e:\n        output_message = \"Action reached timeout waiting for report for File: {0}\".format(element_for_analysis)\n        siemplify.LOGGER.error(output_message)\n        siemplify.LOGGER.exception(e)\n        status = EXECUTION_STATE_FAILED\n        result_value = False\n        return output_message, result_value, status\n                \n    except Exception as e:\n        output_message = 'Error executing action {}. Reason: {}'.format(ANALYZE_FILE_ACTION, e)\n        siemplify.LOGGER.error(output_message)\n        siemplify.LOGGER.exception(e)\n        status = EXECUTION_STATE_FAILED\n        result_value = False\n        return output_message, result_value, status\n        \n    if not wait_for_report:\n        result_value = True\n        status = EXECUTION_STATE_COMPLETED\n        siemplify.result.add_result_json(json_result)\n        \n    return output_message, result_value, status\n\ndef query_operation_status(siemplify, anyrun_manager, element_for_analysis):\n    \"\"\"\n    Function that periodically fetches the results of the analysis\n    :param siemplify: SiemplifyAction object.\n    :param anyrun_manager: AnyRun manager object.\n    :param element_for_analysis: {str} File that should be analyzed\n    \"\"\"\n    \n    task_analysis = json.loads(siemplify.extract_action_param(\"additional_data\"))\n    \n    try:\n        task_id = task_analysis.get(\"task_id\")\n        analysis_report = anyrun_manager.fetch_report(task_id)\n        analysis_status = analysis_report.status\n        \n    except Exception as e:\n        output_message = 'Error executing action {}. Reason: {}'.format(ANALYZE_FILE_ACTION, e)\n        siemplify.LOGGER.error(output_message)\n        siemplify.LOGGER.exception(e)\n        status = EXECUTION_STATE_FAILED\n        result_value = False\n        return output_message, result_value, status\n    \n\n    if analysis_status == STATUS_IN_PROGRESS:\n        status = EXECUTION_STATE_INPROGRESS\n        result_value = json.dumps(task_analysis)\n        output_message = \"Report for the File {} with ID: {} is not ready yet. Will check again later....\".format(element_for_analysis, task_id) \n    \n    else:\n        status = EXECUTION_STATE_COMPLETED\n            \n        result_value = True\n        output_message = \"Report of the File analysis successfully prepared.\"\n        siemplify.result.add_result_json(analysis_report.raw_data)\n                    \n    return output_message, result_value, status\n\n@output_handler\ndef main(is_first_run):\n    siemplify = SiemplifyAction()\n    siemplify.script_name = ANALYZE_FILE_ACTION\n    mode = \"Main\" if is_first_run else \"Get Report\"\n    siemplify.LOGGER.info(\"----------------- {} - Param Init -----------------\".format(mode))\n\n    api_key = extract_configuration_param(siemplify, provider_name=INTEGRATION_NAME,\n                                                  param_name=\"Api Key\")\n    \n    file_path = extract_action_param(siemplify, param_name=\"File Path\", is_mandatory=True, print_value=True)\n    file_path = file_path.split(\",\")\n    wait_for_report = extract_action_param(siemplify, param_name=\"Wait for the report?\", is_mandatory=False, default_value=True, input_type=bool, print_value=True)\n    active_session = extract_action_param(siemplify, param_name=\"Try to create submission for x times\", is_mandatory=True, default_value=30, input_type=int, print_value=True)\n    os_version = extract_action_param(siemplify, param_name=\"OS Version\", is_mandatory=False, print_value=True)\n    operation_system_bitness = extract_action_param(siemplify, param_name=\"Operation System Bitness\", is_mandatory=False, print_value=True)\n    os_env_type = extract_action_param(siemplify, param_name=\"OS Environment Type\", is_mandatory=False, print_value=True)\n    network_connection_status = extract_action_param(siemplify, param_name=\"Network Connection Status\", is_mandatory=False, print_value=True)\n    fakenet_feature_status = extract_action_param(siemplify, param_name=\"FakeNet Feature Status\", is_mandatory=False, print_value=True)\n    use_tor = extract_action_param(siemplify, param_name=\"Use TOR\", is_mandatory=False, print_value=True)\n    opt_network_mitm = extract_action_param(siemplify, param_name=\"opt_network_mitm\", is_mandatory=False, print_value=True)\n    opt_network_geo = extract_action_param(siemplify, param_name=\"opt_network_geo\", is_mandatory=False, print_value=True)\n    opt_network_heavyevasion = extract_action_param(siemplify, param_name=\"opt_network_heavyevasion\", is_mandatory=False, print_value=True)\n    opt_privacy_type = extract_action_param(siemplify, param_name=\"opt_privacy_type\", is_mandatory=False, print_value=True)\n    obj_ext_startfolder = extract_action_param(siemplify, param_name=\"obj_ext_startfolder\", is_mandatory=False, print_value=True)\n    opt_timeout = extract_action_param(siemplify, param_name=\"opt_timeout\", is_mandatory=False, print_value=True)\n\n    #Mapping of params\n    network_connection_status = NETWORK_STATUS_MAPPING.get(network_connection_status)\n    opt_privacy_type = NETWORK_PRIVACY_TYPE.get(opt_privacy_type)  \n\n    siemplify.LOGGER.info(\"----------------- {} - Started -----------------\".format(mode))\n\n    try:\n        anyrun_manager = AnyRunManager(api_key=api_key)\n\n        if is_first_run:\n            output_message, result_value, status = start_operation(siemplify=siemplify, anyrun_manager=anyrun_manager,wait_for_report=wait_for_report,element_for_analysis=file_path, os_version=os_version ,operation_system_bitness=operation_system_bitness, os_env_type=os_env_type,\n                                                            network_connection_status=network_connection_status, fakenet_feature_status=fakenet_feature_status,\n                                                            use_tor=use_tor, opt_network_mitm=opt_network_mitm, opt_network_geo=opt_network_geo,\n                                                            opt_network_heavyevasion=True, opt_privacy_type=opt_privacy_type,\n                                                            obj_ext_startfolder=obj_ext_startfolder, opt_timeout=opt_timeout,active_session=active_session)\n        else:\n            output_message, result_value, status = query_operation_status(siemplify=siemplify, anyrun_manager=anyrun_manager,element_for_analysis=file_path)\n\n    except Exception as e:\n        output_message = 'Error executing action {}. Reason: {}'.format(ANALYZE_FILE_ACTION, e)\n        siemplify.LOGGER.error(output_message)\n        siemplify.LOGGER.exception(e)\n        status = EXECUTION_STATE_FAILED\n        result_value = False\n\n    siemplify.LOGGER.info(\"----------------- {} - Finished -----------------\".format(mode))\n    siemplify.LOGGER.info(\n        '\\n  status: {}\\n  result_value: {}\\n  output_message: {}'.format(status, result_value, output_message))\n        \n    siemplify.end(output_message, result_value, status)\n\nif __name__ == '__main__':\n    is_first_run = len(sys.argv) < 3 or sys.argv[2] == 'True'\n    main(is_first_run)\n",
+    "integration": "AnyRun",
+    "creator": "7a7f9e2c-7774-4221-8558-986f5708fd17",
+    "creatorFullName": "jose marin",
+    "isEnabled": true,
+    "isCustom": true,
+    "version": 5,
+    "parameters": [
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "File Path",
+            "defaultValue": "",
+            "type": 2,
+            "description": "Specify full path to file to analyze.",
+            "mode": 1,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Wait for the report?",
+            "defaultValue": "True",
+            "type": 0,
+            "description": "Specify whether action should wait for the report creation. Report also can be obtained later with Get report action once scan is completed.",
+            "mode": 1,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Try to create submission for x times",
+            "defaultValue": "30",
+            "type": 2,
+            "description": "How many attempts action should make to check if the API concurrency limit is not exceeded and try to create a new submission. Check is made every 2 seconds.",
+            "mode": 1,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "OS Version",
+            "defaultValue": "7",
+            "type": 16,
+            "description": "OS version to run analysis on.",
+            "mode": 1,
+            "optionalValues": [
+                "7",
+                "8.1",
+                "10"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Operation System Bitness",
+            "defaultValue": "32",
+            "type": 16,
+            "description": "Bitness of Operation System",
+            "mode": 1,
+            "optionalValues": [
+                "32",
+                "64"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "OS Environment Type",
+            "defaultValue": "complete",
+            "type": 16,
+            "description": "Environment type to run analysis on.",
+            "mode": 1,
+            "optionalValues": [
+                "complete",
+                "office",
+                "clean"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Network Connection Status",
+            "defaultValue": "On",
+            "type": 16,
+            "description": "Network connection state for analysis.",
+            "mode": 1,
+            "optionalValues": [
+                "On",
+                "Off"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "FakeNet Feature Status",
+            "defaultValue": "false",
+            "type": 16,
+            "description": "FakeNet feature state for analysis.",
+            "mode": 1,
+            "optionalValues": [
+                "true",
+                "false"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Use TOR",
+            "defaultValue": "false",
+            "type": 16,
+            "description": "Use TOR or not while running analysis.",
+            "mode": 1,
+            "optionalValues": [
+                "true",
+                "false"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "opt_network_mitm",
+            "defaultValue": "false",
+            "type": 16,
+            "description": "HTTPS MITM proxy option.",
+            "mode": 1,
+            "optionalValues": [
+                "true",
+                "false"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "opt_network_geo",
+            "defaultValue": "Fastest",
+            "type": 16,
+            "description": "Geo location option.",
+            "mode": 1,
+            "optionalValues": [
+                "Fastest",
+                "AU",
+                "BR",
+                "DE",
+                "CH",
+                "FR",
+                "KR",
+                "US",
+                "RU",
+                "GB",
+                "IT"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "opt_network_heavyevasion",
+            "defaultValue": "false",
+            "type": 16,
+            "description": "Heavy evasion option.",
+            "mode": 1,
+            "optionalValues": [
+                "true",
+                "false"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "opt_privacy_type",
+            "defaultValue": "By Link",
+            "type": 16,
+            "description": "Privacy settings for analysis.",
+            "mode": 1,
+            "optionalValues": [
+                "By Link",
+                "Public",
+                "Owner"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "obj_ext_startfolder",
+            "defaultValue": "temp",
+            "type": 16,
+            "description": "Start location for analysis.",
+            "mode": 1,
+            "optionalValues": [
+                "temp",
+                "desktop",
+                "home",
+                "downloads",
+                "aapdata",
+                "windows",
+                "root"
+            ]
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "opt_timeout",
+            "defaultValue": "60",
+            "type": 2,
+            "description": "Timeout period for analysis in range from 10 to 9999 seconds.",
+            "mode": 1,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Output Name",
+            "defaultValue": "is_success",
+            "type": 2,
+            "description": null,
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Result Json Example",
+            "defaultValue": "{\"error\": false, \"data\": {\"mitre\": [], \"counters\": {\"registry\": {\"delete\": 0, \"write\": 0, \"read\": 0, \"total\": 0}, \"files\": {\"malicious\": 0, \"suspicious\": 0, \"text\": 0, \"unknown\": 0}, \"network\": {\"threats\": 0, \"dns\": 0, \"connections\": 0, \"http\": 0}, \"processes\": {\"malicious\": 0, \"suspicious\": 0, \"monitored\": 1, \"total\": 33}}, \"incidents\": [], \"debugStrings\": [], \"network\": {\"threats\": [], \"connections\": [], \"httpRequests\": [], \"dnsRequests\": []}, \"modified\": {\"registry\": [], \"files\": []}, \"processes\": [{\"modules\": [], \"status\": \"STILL RUNNING\", \"scores\": {\"specs\": {\"privEscalation\": false, \"stealing\": false, \"networkLoader\": false, \"network\": false, \"lowAccess\": false, \"knownThreat\": false, \"injects\": false, \"exploitable\": false, \"executableDropped\": false, \"debugOutput\": false, \"crashedApps\": false, \"autoStart\": false}, \"loadsSusp\": false, \"injected\": false, \"dropped\": false, \"monitoringReason\": \"Main process\", \"verdict\": {\"threatLevelText\": \"No threat detected\", \"threatLevel\": 0, \"score\": 0}}, \"context\": {\"userName\": \"admin\", \"integrityLevel\": \"MEDIUM\", \"rebootNumber\": 0}, \"versionInfo\": {\"version\": \"6.1.7600.16385 (win7_rtm.090713-1255)\", \"description\": \"Notepad\", \"company\": \"Microsoft Corporation\"}, \"times\": {\"monitoringSince\": 1603722663300, \"start\": 1603722663300}, \"mainProcess\": true, \"fileType\": \"TOOLS\", \"fileName\": \"NOTEPAD.EXE\", \"commandLine\": \"\\\"C:\\\\Windows\\\\system32\\\\NOTEPAD.EXE\\\" C:\\\\Users\\\\admin\\\\AppData\\\\Local\\\\Temp\\\\text.txt\", \"image\": \"C:\\\\Windows\\\\system32\\\\NOTEPAD.EXE\", \"uuid\": \"44c0d0e0-5a56-49a4-854e-900b1b5586ba\", \"ppid\": 292, \"pid\": 2224}], \"environments\": {\"hotfixes\": [{\"title\": \"KB976902\"}, {\"title\": \"KB4019990\"}, {\"title\": \"KB2999226\"}, {\"title\": \"KB2888049\"}, {\"title\": \"KB2882822\"}, {\"title\": \"KB2834140\"}, {\"title\": \"KB2786081\"}, {\"title\": \"KB2731771\"}, {\"title\": \"KB2729094\"}, {\"title\": \"KB2639308\"}, {\"title\": \"KB2534111\"}, {\"title\": \"KB2533623\"}, {\"title\": \"UltimateEdition\"}, {\"title\": \"ProfessionalEdition\"}, {\"title\": \"PlatformUpdate Win7 SRV08R2 Package TopLevel\"}, {\"title\": \"LocalPack ZA Package\"}, {\"title\": \"LocalPack US Package\"}, {\"title\": \"LocalPack GB Package\"}, {\"title\": \"LocalPack CA Package\"}, {\"title\": \"LocalPack AU Package\"}, {\"title\": \"InternetExplorer Package TopLevel\"}, {\"title\": \"InternetExplorer Optional Package\"}, {\"title\": \"IE Troubleshooters Package\"}, {\"title\": \"IE Spelling Parent Package English\"}, {\"title\": \"IE Hyphenation Parent Package English\"}, {\"title\": \"Foundation Package\"}, {\"title\": \"CodecPack Basic Package\"}, {\"title\": \"Client Refresh LanguagePack Package\"}, {\"title\": \"Client LanguagePack Package\"}], \"software\": [{\"version\": \"12.0.21005\", \"title\": \"Microsoft Visual C++ 2013 x86 Additional Runtime - 12.0.21005\"}, {\"version\": \"12.0.30501.0\", \"title\": \"Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.30501\"}, {\"version\": \"10.0.40219\", \"title\": \"Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219\"}, {\"version\": \"15.023.20070\", \"title\": \"Adobe Acrobat Reader DC MUI\"}, {\"version\": \"1.8.0\", \"title\": \"Adobe Refresh Manager\"}, {\"version\": \"9.0.30729.6161\", \"title\": \"Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161\"}, {\"version\": \"1\", \"title\": \"Update for Microsoft .NET Framework 4.7.2 (KB4087364)\"}, {\"version\": \"4.7.03062\", \"title\": \"Microsoft .NET Framework 4.7.2\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Access Setup Metadata MUI (English) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Shared Setup Metadata MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office X MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (French) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office X MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office O MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (French) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office O MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Groove MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (French) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Groove MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office OneNote MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office OneNote MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office OneNote MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Shared MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Shared MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Shared MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office InfoPath MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (French) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office InfoPath MUI (German) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Single Image 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Proofing (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Proofing (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proofing (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office IME (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office IME (Japanese) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Proof (Spanish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Galician) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Basque) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Ukrainian) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Proof (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Dutch) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Italian) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Proof (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Proof (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Catalan) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Proof (Arabic) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Word MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Word MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Word MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Outlook MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Outlook MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Outlook MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Publisher MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Publisher MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Publisher MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office PowerPoint MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office PowerPoint MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office PowerPoint MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office SharePoint Designer MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (French) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office SharePoint Designer MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Excel MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Excel MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Excel MUI (German) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (Spanish) 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Access MUI (Turkish) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (Russian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (Portuguese (Brazil)) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (Korean) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (Japanese) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (Italian) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (French) 2010\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Access MUI (English) 2010\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Access MUI (German) 2010\"}, {\"version\": \"75.0.3770.100\", \"title\": \"Google Chrome\"}, {\"version\": \"1.3.34.7\", \"title\": \"Google Update Helper\"}, {\"version\": \"2.8.92.14\", \"title\": \"Java Auto Updater\"}, {\"version\": \"14.21.27702.2\", \"title\": \"Microsoft Visual C++ 2015-2019 Redistributable (x86) - 14.21.27702\"}, {\"version\": \"8.0.920.14\", \"title\": \"Java 8 Update 92\"}, {\"version\": \"14.21.27702\", \"title\": \"Microsoft Visual C++ 2019 X86 Additional Runtime - 14.21.27702\"}, {\"version\": \"14.21.27702\", \"title\": \"Microsoft Visual C++ 2019 X86 Minimum Runtime - 14.21.27702\"}, {\"version\": \"12.0.21005\", \"title\": \"Microsoft Visual C++ 2013 x86 Minimum Runtime - 12.0.21005\"}, {\"version\": \"2.12.72\", \"title\": \"srvpost\"}, {\"version\": \"5.60.0\", \"title\": \"WinRAR 5.60 (32-bit)\"}, {\"version\": \"2.2.6\", \"title\": \"VLC media player\"}, {\"version\": \"8.29\", \"title\": \"Skype version 8.29\"}, {\"version\": \"12.15.1748\", \"title\": \"Opera 12.15\"}, {\"version\": \"14.0.6029.1000\", \"title\": \"Microsoft Office Professional 2010\"}, {\"version\": \"14.0.4763.1013\", \"title\": \"Microsoft Office Language Pack 2010 - Turkish/T\\u00fcrk\\u00e7e\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - Russian/\\u0440\\u0443\\u0441\\u0441\\u043a\\u0438\\u0439\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - Portuguese/Portugu\\u00eas (Brasil)\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - Korean/\\ud55c\\uad6d\\uc5b4\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - Japanese/\\u65e5\\u672c\\u8a9e\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - Italian/Italiano\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - French/Fran\\u00e7ais\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - Spanish/Espa\\u00f1ol\"}, {\"version\": \"14.0.4763.1000\", \"title\": \"Microsoft Office Language Pack 2010 - German/Deutsch\"}, {\"version\": \"7.5.1\", \"title\": \"Notepad++ (32-bit x86)\"}, {\"version\": \"68.0.1\", \"title\": \"Mozilla Firefox 68.0.1 (x86 en-US)\"}, {\"version\": \"3.36.0\", \"title\": \"FileZilla Client 3.36.0\"}, {\"version\": \"5.35\", \"title\": \"CCleaner\"}, {\"version\": \"26.0.0.131\", \"title\": \"Adobe Flash Player 26 PPAPI\"}, {\"version\": \"26.0.0.131\", \"title\": \"Adobe Flash Player 26 NPAPI\"}, {\"version\": \"26.0.0.131\", \"title\": \"Adobe Flash Player 26 ActiveX\"}], \"internetExplorer\": {\"kbnum\": \"KB3058515\", \"version\": \"11.0.9600.17843\"}, \"os\": {\"bitness\": 32, \"softSet\": \"complete\", \"servicePack\": \"1\", \"major\": \"7\", \"productType\": \"Client\", \"variant\": \"Professional\", \"product\": \"Windows\", \"build\": 7601, \"title\": \"Windows 7 Professional Service Pack 1 (build: 7601, 32 bit)\"}}, \"analysis\": {\"content\": {\"screenshots\": [{\"thumbnailUrl\": \"https://content.any.run/tasks/4e599608-4a43-4b1f-8fc4-7b8563469664/download/thumbnails/2ee119a3-3c8c-4bf3-9039-d9ffffe612b0/image.jpeg\", \"permanentUrl\": \"https://content.any.run/tasks/4e599608-4a43-4b1f-8fc4-7b8563469664/download/screens/2ee119a3-3c8c-4bf3-9039-d9ffffe612b0/image.jpeg\", \"time\": 28626, \"uuid\": \"2ee119a3-3c8c-4bf3-9039-d9ffffe612b0\"}], \"pcap\": {\"permanentUrl\": \"https://content.any.run/tasks/4e599608-4a43-4b1f-8fc4-7b8563469664/download/pcap\", \"present\": true}, \"video\": {\"present\": false}, \"mainObject\": {\"info\": {\"mime\": \"text/plain\", \"file\": \"ASCII text\", \"ext\": \"txt\"}, \"hashes\": {\"ssdeep\": \"3:F:F\", \"sha256\": \"a12b7cb43c9d9134b5bb1b35e9096b66775d9e92e7611d1cc92b02edd6782a87\", \"sha1\": \"09fb654c17cc05b11ef53bd35aa701f6d550e8e1\", \"md5\": \"d36f8f9425c4a8000ad9c4a97185aca5\"}, \"filename\": \"text.txt\", \"permanentUrl\": \"https://content.any.run/tasks/4e599608-4a43-4b1f-8fc4-7b8563469664/download/files/04006f30-c53c-480f-b23b-918a963e0765\", \"type\": \"file\"}}, \"scores\": {\"specs\": {\"notStarted\": false, \"privEscalation\": false, \"torUsed\": false, \"suspStruct\": false, \"stealing\": false, \"staticDetections\": false, \"spam\": false, \"serviceLauncher\": false, \"rebooted\": false, \"networkThreats\": false, \"networkLoader\": false, \"multiprocessing\": false, \"memOverrun\": false, \"lowAccess\": false, \"exploitable\": false, \"executableDropped\": false, \"debugOutput\": false, \"crashedTask\": false, \"crashedApps\": false, \"cpuOverrun\": false, \"autostart\": false, \"injects\": false}, \"verdict\": {\"threatLevelText\": \"No threats detected\", \"threatLevel\": 0, \"score\": 0}}, \"options\": {\"automatization\": {\"uac\": false}, \"privateSample\": false, \"privacy\": \"bylink\", \"network\": true, \"hideSource\": false, \"video\": true, \"presentation\": false, \"tor\": {\"geo\": \"fastest\", \"used\": false}, \"mitm\": false, \"heavyEvasion\": false, \"fakeNet\": false, \"additionalTime\": 0, \"timeout\": 60}, \"tags\": [], \"creationText\": \"2020-10-26T14:30:36.419Z\", \"creation\": 1603722636419, \"duration\": 60, \"sandbox\": {\"plan\": {\"name\": \"Tester\"}, \"name\": \"ANY.RUN - Interactive Sandbox\"}, \"reports\": {\"graph\": \"https://content.any.run/tasks/4e599608-4a43-4b1f-8fc4-7b8563469664/graph\", \"HTML\": \"https://api.any.run/report/4e599608-4a43-4b1f-8fc4-7b8563469664/summary/html\", \"MISP\": \"https://api.any.run/report/4e599608-4a43-4b1f-8fc4-7b8563469664/summary/misp\", \"IOC\": \"https://api.any.run/report/4e599608-4a43-4b1f-8fc4-7b8563469664/ioc/json\"}, \"permanentUrl\": \"https://app.any.run/tasks/4e599608-4a43-4b1f-8fc4-7b8563469664\", \"uuid\": \"4e599608-4a43-4b1f-8fc4-7b8563469664\"}, \"status\": \"done\"}}",
+            "type": 2,
+            "description": null,
+            "mode": 2,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Include JSON Result",
+            "defaultValue": "True",
+            "type": 0,
+            "description": null,
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Polling Timeout",
+            "defaultValue": "600",
+            "type": 17,
+            "description": "Will poll until this threshold is reached. Then the actions ends with a timeout.",
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Async Polling Interval",
+            "defaultValue": "3600",
+            "type": 17,
+            "description": "Determine the delay time between intervals for async action",
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": true,
+            "isAdvanced": false,
+            "name": "Async Action Timeout",
+            "defaultValue": "86400",
+            "type": 17,
+            "description": "Determine the total timeout for async action intervals",
+            "mode": 0,
+            "optionalValues": null
+        },
+        {
+            "isMandatory": false,
+            "isAdvanced": false,
+            "name": "Default Return Value",
+            "defaultValue": null,
+            "type": 2,
+            "description": "On timeout, this value will be returned by the script via the Output Name parameter.",
+            "mode": 0,
+            "optionalValues": null
+        }
+    ],
+    "connectorRules": null,
+    "isConnectorRulesSupported": false,
+    "documentationLink": null,
+    "pythonVersion": "V3_7"
+}

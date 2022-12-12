@@ -1,0 +1,1088 @@
+[
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Connectors",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Connectors",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "c9dec698-b7ab-4ec8-a2bf-8ef61570fb4f",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809030,
+                    "modificationTimeUnixTimeInMs": 1670863809030
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Enrichment",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Enrichment",
+                    "propertyName": "API Key",
+                    "propertyDescription": "Siemplify API Key - Required to Enrich Entities from Explorer",
+                    "propertyDisplayName": "API Key",
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "dec2ddb3-e63a-4055-8d04-4a2c1272d822",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809046,
+                    "modificationTimeUnixTimeInMs": 1670863809046
+                },
+                {
+                    "integrationIdentifier": "Enrichment",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "dec2ddb3-e63a-4055-8d04-4a2c1272d822",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809046,
+                    "modificationTimeUnixTimeInMs": 1670863809046
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "FileUtilities",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "FileUtilities",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "9ad1babd-e62b-4b4a-9901-3964810475b6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809062,
+                    "modificationTimeUnixTimeInMs": 1670863809062
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Functions",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Functions",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "f6d99fa4-49b6-4c68-b80c-327850ed398f",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809078,
+                    "modificationTimeUnixTimeInMs": 1670863809078
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Insights",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Insights",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "6d9c0b70-e49b-4791-8478-9956ff28bbbe",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809094,
+                    "modificationTimeUnixTimeInMs": 1670863809094
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Lists",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Lists",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "822d27d8-15b0-43ec-a82e-4dc908a10887",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809109,
+                    "modificationTimeUnixTimeInMs": 1670863809109
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "TemplateEngine",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "TemplateEngine",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "f1376dc5-5c50-4a9e-baa9-b452ca707bf5",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809124,
+                    "modificationTimeUnixTimeInMs": 1670863809124
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Tools",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Tools",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "b5fd0188-828c-490a-9d30-c99a0362fd04",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809139,
+                    "modificationTimeUnixTimeInMs": 1670863809139
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "MicrosoftAzureSentinel",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Azure Subscription ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Azure Subscription ID",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "b29f15cb-eb34-4c3f-afbb-24552eee4613",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Azure Active Directory ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Azure Active Directory ID",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "3f06a216-e798-47d3-9b06-31482aa5a648",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Api Root",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Root",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "https://management.azure.com",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "OAUTH2 Login Endpoint Url",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "OAUTH2 Login Endpoint Url",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "https://login.microsoftonline.com",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Azure Resource Group",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Azure Resource Group",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "securityservices-test-rg",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Azure Sentinel Workspace Name",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Azure Sentinel Workspace Name",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "NBSentinel-test-ws",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Client ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Client ID",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "d6e44bc6-5550-4978-8fa7-8f93c38c6222",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Client Secret",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Client Secret",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "***************",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "Verify SSL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "False",
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                },
+                {
+                    "integrationIdentifier": "MicrosoftAzureSentinel",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809154,
+                    "modificationTimeUnixTimeInMs": 1670863809154
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "AnyRun",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "AnyRun",
+                    "propertyName": "Api Key",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Key",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "***************",
+                    "integrationInstance": "cce1577e-1ed8-4993-aadf-5ae501ab747b",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809169,
+                    "modificationTimeUnixTimeInMs": 1670863809169
+                },
+                {
+                    "integrationIdentifier": "AnyRun",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "cce1577e-1ed8-4993-aadf-5ae501ab747b",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809169,
+                    "modificationTimeUnixTimeInMs": 1670863809169
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "ThreatConnect",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "ThreatConnect",
+                    "propertyName": "ApiAccessId",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Access Id",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "52636421391781526253",
+                    "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809186,
+                    "modificationTimeUnixTimeInMs": 1670863809186
+                },
+                {
+                    "integrationIdentifier": "ThreatConnect",
+                    "propertyName": "ApiSecretKey",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "ApiSecretKey",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "***************",
+                    "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809186,
+                    "modificationTimeUnixTimeInMs": 1670863809186
+                },
+                {
+                    "integrationIdentifier": "ThreatConnect",
+                    "propertyName": "ApiDefaultOrg",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Default Org",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "NB",
+                    "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809186,
+                    "modificationTimeUnixTimeInMs": 1670863809186
+                },
+                {
+                    "integrationIdentifier": "ThreatConnect",
+                    "propertyName": "ApiBaseUrl",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Root",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "https://nb.threatconnect.com/api",
+                    "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809186,
+                    "modificationTimeUnixTimeInMs": 1670863809186
+                },
+                {
+                    "integrationIdentifier": "ThreatConnect",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809186,
+                    "modificationTimeUnixTimeInMs": 1670863809186
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "MicrosoftTeams",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "MicrosoftTeams",
+                    "propertyName": "Client ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Client ID",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "",
+                    "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809201,
+                    "modificationTimeUnixTimeInMs": 1670863809201
+                },
+                {
+                    "integrationIdentifier": "MicrosoftTeams",
+                    "propertyName": "Secret ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Secret ID",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "",
+                    "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809201,
+                    "modificationTimeUnixTimeInMs": 1670863809201
+                },
+                {
+                    "integrationIdentifier": "MicrosoftTeams",
+                    "propertyName": "Tenant",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Tenant",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "",
+                    "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809201,
+                    "modificationTimeUnixTimeInMs": 1670863809201
+                },
+                {
+                    "integrationIdentifier": "MicrosoftTeams",
+                    "propertyName": "Refresh Token",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Refresh Token",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "",
+                    "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809201,
+                    "modificationTimeUnixTimeInMs": 1670863809201
+                },
+                {
+                    "integrationIdentifier": "MicrosoftTeams",
+                    "propertyName": "Redirect URL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Redirect URL",
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "value": "http://localhost/",
+                    "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809201,
+                    "modificationTimeUnixTimeInMs": 1670863809201
+                },
+                {
+                    "integrationIdentifier": "MicrosoftTeams",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809201,
+                    "modificationTimeUnixTimeInMs": 1670863809201
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "VirusTotalV3",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "VirusTotalV3",
+                    "propertyName": "API Key",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "API Key",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "***************",
+                    "integrationInstance": "0ca8b7df-5f70-4340-902c-97852e5ede81",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809217,
+                    "modificationTimeUnixTimeInMs": 1670863809217
+                },
+                {
+                    "integrationIdentifier": "VirusTotalV3",
+                    "propertyName": "Verify SSL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "True",
+                    "integrationInstance": "0ca8b7df-5f70-4340-902c-97852e5ede81",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809217,
+                    "modificationTimeUnixTimeInMs": 1670863809217
+                },
+                {
+                    "integrationIdentifier": "VirusTotalV3",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "0ca8b7df-5f70-4340-902c-97852e5ede81",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809217,
+                    "modificationTimeUnixTimeInMs": 1670863809217
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "FalconSandbox",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "FalconSandbox",
+                    "propertyName": "Api Root",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Root",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "https://nb.falcon-sandbox.com/api/v2",
+                    "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809232,
+                    "modificationTimeUnixTimeInMs": 1670863809232
+                },
+                {
+                    "integrationIdentifier": "FalconSandbox",
+                    "propertyName": "Api Key",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Api Key",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "***************",
+                    "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809232,
+                    "modificationTimeUnixTimeInMs": 1670863809232
+                },
+                {
+                    "integrationIdentifier": "FalconSandbox",
+                    "propertyName": "Threshold",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Threshold",
+                    "propertyType": 1,
+                    "isMandatory": true,
+                    "value": "50.0",
+                    "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809232,
+                    "modificationTimeUnixTimeInMs": 1670863809232
+                },
+                {
+                    "integrationIdentifier": "FalconSandbox",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809232,
+                    "modificationTimeUnixTimeInMs": 1670863809232
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "MicrosoftGraphMail",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "Azure AD Endpoint",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Azure AD Endpoint",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "https://login.microsoftonline.com",
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                },
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "Microsoft Graph Endpoint",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Microsoft Graph Endpoint",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "https://graph.microsoft.com",
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                },
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "Client ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Client ID",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "b1a8d738-4480-4724-ac6c-ec1695f30350",
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                },
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "Secret ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Secret ID",
+                    "propertyType": 3,
+                    "isMandatory": true,
+                    "value": "***************",
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                },
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "Tenant",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Tenant",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "3f06a216-e798-47d3-9b06-31482aa5a648",
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                },
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "Verify SSL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "True",
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                },
+                {
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809248,
+                    "modificationTimeUnixTimeInMs": 1670863809248
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Exchange",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "ServerAddress",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Mail Server Address",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Mail Address",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Mail address",
+                    "propertyType": 2,
+                    "isMandatory": true,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Domain",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Domain",
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Use Domain For Authentication",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Use Domain For Authentication",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "False",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Use Autodiscover Service",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Use Autodiscover Service",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "False",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Username",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Username",
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Password",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Password",
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Client ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Client ID",
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Client Secret",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Client Secret",
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Tenant (Directory) ID",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Tenant (Directory) ID",
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Redirect URL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Redirect URL",
+                    "propertyType": 2,
+                    "isMandatory": false,
+                    "value": "http://localhost",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Refresh Token",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Refresh Token",
+                    "propertyType": 3,
+                    "isMandatory": false,
+                    "value": "",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "Verify SSL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "False",
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                },
+                {
+                    "integrationIdentifier": "Exchange",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809264,
+                    "modificationTimeUnixTimeInMs": 1670863809264
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "EmailUtilities",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "EmailUtilities",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "7ea566a5-5b72-4745-8246-6caed76488a2",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809279,
+                    "modificationTimeUnixTimeInMs": 1670863809279
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "UnshortenMe",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "UnshortenMe",
+                    "propertyName": "Use SSL",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Use SSL",
+                    "propertyType": 0,
+                    "isMandatory": false,
+                    "value": "False",
+                    "integrationInstance": "2a9c33f0-bba0-4799-a23a-f2a6ba9edfce",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809294,
+                    "modificationTimeUnixTimeInMs": 1670863809294
+                },
+                {
+                    "integrationIdentifier": "UnshortenMe",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "2a9c33f0-bba0-4799-a23a-f2a6ba9edfce",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809294,
+                    "modificationTimeUnixTimeInMs": 1670863809294
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "Arnaud Email Utilities",
+        "settings": {
+            "instanceDescription": null,
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "integrationIdentifier": "Arnaud Email Utilities",
+                    "propertyName": "AgentIdentifier",
+                    "propertyDescription": null,
+                    "propertyDisplayName": "Agent",
+                    "propertyType": 9,
+                    "isMandatory": false,
+                    "value": null,
+                    "integrationInstance": "57763ca6-3f5a-4f28-adb8-08696f264eb1",
+                    "environment": null,
+                    "id": 0,
+                    "creationTimeUnixTimeInMs": 1670863809309,
+                    "modificationTimeUnixTimeInMs": 1670863809309
+                }
+            ]
+        }
+    }
+]

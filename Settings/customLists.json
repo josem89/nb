@@ -1,0 +1,13 @@
+[
+    {
+        "entityIdentifier": "Sentinel: We found x in Y",
+        "category": "External Assesment",
+        "forDBMigration": false,
+        "environments": [
+            "Default Environment"
+        ],
+        "id": 1,
+        "creationTimeUnixTimeInMs": 1670337492374,
+        "modificationTimeUnixTimeInMs": 1670337492374
+    }
+]

@@ -1,0 +1,25 @@
+[
+    {
+        "id": 0,
+        "name": "Default Environment",
+        "description": "Default Environment",
+        "contactName": null,
+        "contactEmails": "",
+        "contactEmailsList": null,
+        "contactPhone": null,
+        "allowedActions": null,
+        "remediationDurationInDays": 0,
+        "shouldAllowRemediationActions": false,
+        "shouldNotifyOnRemediationActions": false,
+        "retentionDurationInMonths": 3,
+        "retentionDurationInMonthsInternal": null,
+        "base64Image": null,
+        "forDBMigration": false,
+        "environmentAllowedForAllUsers": false,
+        "dynamicParameters": [],
+        "properties": {},
+        "isSystem": true,
+        "aliases": [],
+        "instanceUrl": null
+    }
+]

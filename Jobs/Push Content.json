@@ -1,0 +1,187 @@
+{
+    "uniqueIdentifier": "48dd47c3-62cd-452f-ae4c-8a8d60bf1193",
+    "id": 0,
+    "jobDefinitionId": 0,
+    "name": "Push Content",
+    "integration": "GitSync",
+    "script": "from io import BytesIO\n\nfrom GitSyncManager import GitSyncManager\nfrom SiemplifyJob import SiemplifyJob\nfrom SiemplifyUtils import output_handler\nfrom constants import IGNORED_INTEGRATIONS, IGNORED_JOBS, AVAILABLE_CONTENT\nfrom definitions import Integration, VisualFamily, Mapping, Playbook, Connector, Job\n\nSCRIPT_NAME = \"Push Content\"\n\n\n@output_handler\ndef main():\n    siemplify = SiemplifyJob()\n    siemplify.script_name = SCRIPT_NAME\n\n    commit_msg = siemplify.extract_job_param(\"Commit\")\n    commit_passwords = siemplify.extract_job_param(\"Commit Passwords\", input_type=bool)\n\n    # Features\n    features = {}\n    for feature in AVAILABLE_CONTENT:\n        features[feature] = siemplify.extract_job_param(feature, input_type=bool)\n\n    try:\n        gitsync = GitSyncManager.from_siemplify_object(siemplify)\n\n        # Integrations\n        if features[\"Integrations\"]:\n            siemplify.LOGGER.info(\"========== Integrations ==========\")\n            for integration in [x for x in gitsync.api.get_ide_cards() if x.get(\"identifier\") not in IGNORED_INTEGRATIONS]:\n                siemplify.LOGGER.info(f\"Pushing {integration['identifier']}\")\n                integrationObj = Integration(integration, BytesIO(gitsync.api.export_package(integration[\"identifier\"])))\n                try:\n                    gitsync.content.push_integration(integrationObj)\n                except Exception as e:\n                    siemplify.LOGGER.error(f\"Couldn't upload {integrationObj.identifier}. ERROR: {e}\")\n\n        # Playbooks\n        if features[\"Playbooks\"]:\n            siemplify.LOGGER.info(\"========== Playbooks ==========\")\n            for playbook in gitsync.api.get_playbooks():\n                siemplify.LOGGER.info(f\"Pushing {playbook['name']}\")\n                playbook = gitsync.api.get_playbook(playbook[\"identifier\"])\n                gitsync.content.push_playbook(Playbook(playbook))\n\n        # Jobs\n        if features[\"Jobs\"]:\n            siemplify.LOGGER.info(\"========== Jobs ==========\")\n            for job in [x for x in gitsync.api.get_jobs() if\n                        x.get('name') not in IGNORED_JOBS and\n                        not x.get('name').startswith(\"Cases Collector DB\") and\n                        not x.get('name').startswith(\"Logs Collector\")]:\n                siemplify.LOGGER.info(f\"Pushing {job['name']}\")\n                gitsync.content.push_job(Job(job))\n\n        # Connectors\n        if features[\"Connectors\"]:\n            siemplify.LOGGER.info(\"========== Connectors ==========\")\n            for connector in gitsync.api.get_connectors():\n                siemplify.LOGGER.info(f\"Pushing {connector['displayName']}\")\n                gitsync.content.push_connector(Connector(connector))\n\n        # Integration Instances\n        if features[\"Integration Instances\"]:\n            siemplify.LOGGER.info(\"========== Integration Instances ==========\")\n            integration_instances = []\n            for environment in gitsync.api.get_environment_names() + [\"*\"]:\n                for instance in [x for x in gitsync.api.get_integrations_instances(environment) if x.get(\"integrationIdentifier\") not in IGNORED_INTEGRATIONS]:\n                    siemplify.LOGGER.info(f\"Pushing {instance['instanceName']}\")\n                    settings = gitsync.api.get_integration_instance_settings(instance['identifier'])\n                    for sett in settings: # Remove Agent Identifiers from settings - should be created separately\n                        if sett[\"propertyName\"] == \"AgentIdentifier\":\n                            sett[\"value\"] = None\n                            break\n                    if commit_passwords:\n                        try:\n                            secrets = siemplify.get_configuration(instance['identifier'])\n                            for prop in settings:\n                                if prop['propertyType'] == 3:\n                                    try:\n                                        prop['value'] = secrets[prop['propertyName']]\n                                    except KeyError:\n                                        # The integration was updated with new parameters but they weren't configured\n                                        siemplify.LOGGER.warn(f\"{instance['instanceName']} was updated with new parameters but they weren't configured.\")\n                                        pass\n                        except:\n                            # Integration instance is not configured\n                            siemplify.LOGGER.warn(\n                                f\"{instance['identifier']} is not configured. Skipping passwords\")\n                            pass\n\n                    integration_instances.append({\n                        \"environment\": environment,\n                        \"integrationIdentifier\": instance['integrationIdentifier'],\n                        \"settings\": {\n                            \"instanceDescription\": instance['instanceDescription'],\n                            \"instanceName\": instance['instanceName'],\n                            \"settings\": settings\n                        }\n                    })\n            gitsync.content.push_integration_instances(integration_instances)\n\n        # Ontology - Visual Families\n        if features[\"Visual Families\"]:\n            siemplify.LOGGER.info(\"========== Visual Families ==========\")\n            for visualFamily in gitsync.api.get_custom_families():\n                siemplify.LOGGER.info(f\"Pushing {visualFamily['family']}\")\n                gitsync.content.push_visual_family(VisualFamily(gitsync.api.get_custom_family(visualFamily['id'])))\n\n        # Ontology - Mappings\n        if features[\"Mappings\"]:\n            siemplify.LOGGER.info(\"========== Mappings ==========\")\n            allRecords = gitsync.api.get_ontology_records()\n            records_integrations = set([x[\"source\"] for x in allRecords])\n            for integration in records_integrations:\n                siemplify.LOGGER.info(f\"Pushing {integration} mappings\")\n                if integration:\n                    records = [x for x in allRecords if x[\"source\"] == integration]\n                    if not records:\n                        continue\n                    rules = []\n                    for record in records:\n                        record[\"exampleEventFields\"] = []  # remove event assets\n                        rule = gitsync.api.get_mapping_rules(record[\"source\"], record[\"product\"], record[\"eventName\"])\n                        for r in rule['familyFields'] + rule['systemFields']:\n                            # remove bad rules with no source\n                            if r['mappingRule']['source'] and r['mappingRule']['source'].lower() == integration.lower():\n                                rules.append(rule)\n                                break\n\n                    gitsync.content.push_mapping(Mapping(integration, records, rules))\n\n        # Other settings\n        siemplify.LOGGER.info(\"========== Settings ==========\")\n        if features[\"Environments\"]:\n            siemplify.LOGGER.info(f\"Pushing environments\")\n            environments = gitsync.api.get_environments()\n            for environment in environments:\n                environment['id'] = 0\n            gitsync.content.push_environments(environments)\n\n        if features[\"Dynamic Parameters\"]:\n            siemplify.LOGGER.info(\"Pushing dynamic parameters\")\n            gitsync.content.push_dynamic_parameters(gitsync.api.get_env_dynamic_parameters())\n\n        if features[\"Logo\"]:\n            siemplify.LOGGER.info(\"Pushing logo\")\n            logo = gitsync.api.get_logo()\n            if logo[\"imageBase64\"]:\n                # A custom logo is configured.\n                logo[\"imageBase64\"] = \"data:image/png;base64,\" + logo[\"imageBase64\"]\n            gitsync.content.push_logo(logo)\n\n        if features[\"Case Tags\"]:\n            siemplify.LOGGER.info(\"Pushing case tags\")\n            gitsync.content.push_tags(gitsync.api.get_case_tags())\n\n        if features[\"Case Stages\"]:\n            siemplify.LOGGER.info(\"Pushing case stages\")\n            gitsync.content.push_stages(gitsync.api.get_case_stages())\n\n        if features[\"Case Title Settings\"]:\n            siemplify.LOGGER.info(\"Pushing case title settings\")\n            gitsync.content.push_case_titles(gitsync.api.get_case_title_settings())\n\n        if features[\"Case Close Reasons\"]:\n            siemplify.LOGGER.info(\"Pushing case close reasons\")\n            gitsync.content.push_case_close_causes(gitsync.api.get_close_reasons())\n\n        if features[\"Networks\"]:\n            siemplify.LOGGER.info(\"Pushing networks\")\n            gitsync.content.push_networks(gitsync.api.get_networks())\n\n        if features[\"Domains\"]:\n            siemplify.LOGGER.info(\"Pushing domains\")\n            gitsync.content.push_domains(gitsync.api.get_domains())\n\n        if features[\"Custom Lists\"]:\n            siemplify.LOGGER.info(\"Pushing custom lists\")\n            gitsync.content.push_custom_lists(gitsync.api.get_custom_lists())\n\n        if features[\"Email Templates\"]:\n            siemplify.LOGGER.info(\"Pushing email templates\")\n            gitsync.content.push_email_templates(gitsync.api.get_email_templates())\n\n        if features[\"Blacklists\"]:\n            siemplify.LOGGER.info(\"Pushing blacklists\")\n            gitsync.content.push_blacklists(gitsync.api.get_blacklists())\n\n        if features[\"SLA Records\"]:\n            siemplify.LOGGER.info(\"Pushing SLA records\")\n            gitsync.content.push_sla_definitions(gitsync.api.get_sla_records())\n\n        siemplify.LOGGER.info(f\"Done! uploading everything to git\")\n        gitsync.commit_and_push(commit_msg)\n\n    except Exception as e:\n        siemplify.LOGGER.error(\"General error performing Job {}\".format(SCRIPT_NAME))\n        siemplify.LOGGER.exception(e)\n        raise\n\n    siemplify.end_script()\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "creator": "Admin",
+    "description": "Push all content of this platform to git",
+    "isEnabled": true,
+    "isCustom": false,
+    "version": 1,
+    "parameters": [
+        {
+            "id": 33,
+            "isMandatory": true,
+            "name": "Commit",
+            "type": 2,
+            "value": "POC Commit"
+        },
+        {
+            "id": 34,
+            "isMandatory": false,
+            "name": "Repo URL",
+            "type": 2,
+            "value": "https://github.com/josem89/nb.git"
+        },
+        {
+            "id": 35,
+            "isMandatory": false,
+            "name": "Branch",
+            "type": 2,
+            "value": "main"
+        },
+        {
+            "id": 36,
+            "isMandatory": false,
+            "name": "Commit Passwords",
+            "type": 0,
+            "value": "false"
+        },
+        {
+            "id": 37,
+            "isMandatory": false,
+            "name": "Integrations",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 38,
+            "isMandatory": false,
+            "name": "Playbooks",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 39,
+            "isMandatory": false,
+            "name": "Jobs",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 40,
+            "isMandatory": false,
+            "name": "Connectors",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 41,
+            "isMandatory": false,
+            "name": "Integration Instances",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 42,
+            "isMandatory": false,
+            "name": "Visual Families",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 43,
+            "isMandatory": false,
+            "name": "Mappings",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 44,
+            "isMandatory": false,
+            "name": "Environments",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 45,
+            "isMandatory": false,
+            "name": "Dynamic Parameters",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 46,
+            "isMandatory": false,
+            "name": "Logo",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 47,
+            "isMandatory": false,
+            "name": "Case Tags",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 48,
+            "isMandatory": false,
+            "name": "Case Stages",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 49,
+            "isMandatory": false,
+            "name": "Case Title Settings",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 50,
+            "isMandatory": false,
+            "name": "Case Close Reasons",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 51,
+            "isMandatory": false,
+            "name": "Networks",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 52,
+            "isMandatory": false,
+            "name": "Domains",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 53,
+            "isMandatory": false,
+            "name": "Custom Lists",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 54,
+            "isMandatory": false,
+            "name": "Email Templates",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 55,
+            "isMandatory": false,
+            "name": "Blacklists",
+            "type": 0,
+            "value": "true"
+        },
+        {
+            "id": 56,
+            "isMandatory": false,
+            "name": "SLA Records",
+            "type": 0,
+            "value": "true"
+        }
+    ],
+    "runIntervalInSeconds": 43200,
+    "creationTime": "2022-12-12T16:49:55.87Z",
+    "lastModificationTime": "2022-12-12T16:49:55.87Z",
+    "isSystemJob": false
+}

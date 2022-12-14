@@ -17,8 +17,8 @@
                     "integrationInstance": "c9dec698-b7ab-4ec8-a2bf-8ef61570fb4f",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993543987,
-                    "modificationTimeUnixTimeInMs": 1670993543987
+                    "creationTimeUnixTimeInMs": 1671036770840,
+                    "modificationTimeUnixTimeInMs": 1671036770840
                 }
             ]
         }
@@ -41,8 +41,8 @@
                     "integrationInstance": "dec2ddb3-e63a-4055-8d04-4a2c1272d822",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544002,
-                    "modificationTimeUnixTimeInMs": 1670993544002
+                    "creationTimeUnixTimeInMs": 1671036770856,
+                    "modificationTimeUnixTimeInMs": 1671036770856
                 },
                 {
                     "integrationIdentifier": "Enrichment",
@@ -55,8 +55,8 @@
                     "integrationInstance": "dec2ddb3-e63a-4055-8d04-4a2c1272d822",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544002,
-                    "modificationTimeUnixTimeInMs": 1670993544002
+                    "creationTimeUnixTimeInMs": 1671036770856,
+                    "modificationTimeUnixTimeInMs": 1671036770856
                 }
             ]
         }
@@ -79,8 +79,8 @@
                     "integrationInstance": "9ad1babd-e62b-4b4a-9901-3964810475b6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544020,
-                    "modificationTimeUnixTimeInMs": 1670993544020
+                    "creationTimeUnixTimeInMs": 1671036770871,
+                    "modificationTimeUnixTimeInMs": 1671036770871
                 }
             ]
         }
@@ -103,8 +103,8 @@
                     "integrationInstance": "f6d99fa4-49b6-4c68-b80c-327850ed398f",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544036,
-                    "modificationTimeUnixTimeInMs": 1670993544036
+                    "creationTimeUnixTimeInMs": 1671036770887,
+                    "modificationTimeUnixTimeInMs": 1671036770887
                 }
             ]
         }
@@ -127,8 +127,8 @@
                     "integrationInstance": "6d9c0b70-e49b-4791-8478-9956ff28bbbe",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544053,
-                    "modificationTimeUnixTimeInMs": 1670993544053
+                    "creationTimeUnixTimeInMs": 1671036770903,
+                    "modificationTimeUnixTimeInMs": 1671036770903
                 }
             ]
         }
@@ -151,8 +151,8 @@
                     "integrationInstance": "822d27d8-15b0-43ec-a82e-4dc908a10887",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544069,
-                    "modificationTimeUnixTimeInMs": 1670993544069
+                    "creationTimeUnixTimeInMs": 1671036770919,
+                    "modificationTimeUnixTimeInMs": 1671036770919
                 }
             ]
         }
@@ -175,8 +175,8 @@
                     "integrationInstance": "f1376dc5-5c50-4a9e-baa9-b452ca707bf5",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544085,
-                    "modificationTimeUnixTimeInMs": 1670993544085
+                    "creationTimeUnixTimeInMs": 1671036770937,
+                    "modificationTimeUnixTimeInMs": 1671036770937
                 }
             ]
         }
@@ -199,8 +199,8 @@
                     "integrationInstance": "b5fd0188-828c-490a-9d30-c99a0362fd04",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544100,
-                    "modificationTimeUnixTimeInMs": 1670993544100
+                    "creationTimeUnixTimeInMs": 1671036770952,
+                    "modificationTimeUnixTimeInMs": 1671036770952
                 }
             ]
         }
@@ -223,8 +223,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -237,8 +237,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -251,8 +251,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -265,8 +265,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -279,8 +279,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -293,8 +293,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -307,8 +307,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -321,8 +321,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -335,8 +335,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 },
                 {
                     "integrationIdentifier": "MicrosoftAzureSentinel",
@@ -349,8 +349,8 @@
                     "integrationInstance": "a718acc6-4351-4a65-95b7-f4d318bedbd6",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544117,
-                    "modificationTimeUnixTimeInMs": 1670993544117
+                    "creationTimeUnixTimeInMs": 1671036770968,
+                    "modificationTimeUnixTimeInMs": 1671036770968
                 }
             ]
         }
@@ -373,8 +373,8 @@
                     "integrationInstance": "cce1577e-1ed8-4993-aadf-5ae501ab747b",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544133,
-                    "modificationTimeUnixTimeInMs": 1670993544133
+                    "creationTimeUnixTimeInMs": 1671036770983,
+                    "modificationTimeUnixTimeInMs": 1671036770983
                 },
                 {
                     "integrationIdentifier": "AnyRun",
@@ -387,8 +387,8 @@
                     "integrationInstance": "cce1577e-1ed8-4993-aadf-5ae501ab747b",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544133,
-                    "modificationTimeUnixTimeInMs": 1670993544133
+                    "creationTimeUnixTimeInMs": 1671036770983,
+                    "modificationTimeUnixTimeInMs": 1671036770983
                 }
             ]
         }
@@ -411,8 +411,8 @@
                     "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544148,
-                    "modificationTimeUnixTimeInMs": 1670993544148
+                    "creationTimeUnixTimeInMs": 1671036770998,
+                    "modificationTimeUnixTimeInMs": 1671036770998
                 },
                 {
                     "integrationIdentifier": "ThreatConnect",
@@ -425,8 +425,8 @@
                     "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544148,
-                    "modificationTimeUnixTimeInMs": 1670993544148
+                    "creationTimeUnixTimeInMs": 1671036770998,
+                    "modificationTimeUnixTimeInMs": 1671036770998
                 },
                 {
                     "integrationIdentifier": "ThreatConnect",
@@ -439,8 +439,8 @@
                     "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544148,
-                    "modificationTimeUnixTimeInMs": 1670993544148
+                    "creationTimeUnixTimeInMs": 1671036770998,
+                    "modificationTimeUnixTimeInMs": 1671036770998
                 },
                 {
                     "integrationIdentifier": "ThreatConnect",
@@ -453,8 +453,8 @@
                     "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544148,
-                    "modificationTimeUnixTimeInMs": 1670993544148
+                    "creationTimeUnixTimeInMs": 1671036770998,
+                    "modificationTimeUnixTimeInMs": 1671036770998
                 },
                 {
                     "integrationIdentifier": "ThreatConnect",
@@ -467,8 +467,8 @@
                     "integrationInstance": "86d0fcfd-24c3-4b94-a8a2-7f97dc2eff03",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544148,
-                    "modificationTimeUnixTimeInMs": 1670993544148
+                    "creationTimeUnixTimeInMs": 1671036770998,
+                    "modificationTimeUnixTimeInMs": 1671036770998
                 }
             ]
         }
@@ -491,8 +491,8 @@
                     "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544163,
-                    "modificationTimeUnixTimeInMs": 1670993544163
+                    "creationTimeUnixTimeInMs": 1671036771015,
+                    "modificationTimeUnixTimeInMs": 1671036771015
                 },
                 {
                     "integrationIdentifier": "MicrosoftTeams",
@@ -505,8 +505,8 @@
                     "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544163,
-                    "modificationTimeUnixTimeInMs": 1670993544163
+                    "creationTimeUnixTimeInMs": 1671036771015,
+                    "modificationTimeUnixTimeInMs": 1671036771015
                 },
                 {
                     "integrationIdentifier": "MicrosoftTeams",
@@ -519,8 +519,8 @@
                     "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544163,
-                    "modificationTimeUnixTimeInMs": 1670993544163
+                    "creationTimeUnixTimeInMs": 1671036771015,
+                    "modificationTimeUnixTimeInMs": 1671036771015
                 },
                 {
                     "integrationIdentifier": "MicrosoftTeams",
@@ -533,8 +533,8 @@
                     "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544163,
-                    "modificationTimeUnixTimeInMs": 1670993544163
+                    "creationTimeUnixTimeInMs": 1671036771015,
+                    "modificationTimeUnixTimeInMs": 1671036771015
                 },
                 {
                     "integrationIdentifier": "MicrosoftTeams",
@@ -547,8 +547,8 @@
                     "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544163,
-                    "modificationTimeUnixTimeInMs": 1670993544163
+                    "creationTimeUnixTimeInMs": 1671036771015,
+                    "modificationTimeUnixTimeInMs": 1671036771015
                 },
                 {
                     "integrationIdentifier": "MicrosoftTeams",
@@ -561,8 +561,8 @@
                     "integrationInstance": "fe17abb5-6e8e-4c11-b8d7-a6bef5f2a478",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544163,
-                    "modificationTimeUnixTimeInMs": 1670993544163
+                    "creationTimeUnixTimeInMs": 1671036771015,
+                    "modificationTimeUnixTimeInMs": 1671036771015
                 }
             ]
         }
@@ -585,8 +585,8 @@
                     "integrationInstance": "0ca8b7df-5f70-4340-902c-97852e5ede81",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544178,
-                    "modificationTimeUnixTimeInMs": 1670993544178
+                    "creationTimeUnixTimeInMs": 1671036771033,
+                    "modificationTimeUnixTimeInMs": 1671036771033
                 },
                 {
                     "integrationIdentifier": "VirusTotalV3",
@@ -599,8 +599,8 @@
                     "integrationInstance": "0ca8b7df-5f70-4340-902c-97852e5ede81",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544178,
-                    "modificationTimeUnixTimeInMs": 1670993544178
+                    "creationTimeUnixTimeInMs": 1671036771033,
+                    "modificationTimeUnixTimeInMs": 1671036771033
                 },
                 {
                     "integrationIdentifier": "VirusTotalV3",
@@ -613,8 +613,8 @@
                     "integrationInstance": "0ca8b7df-5f70-4340-902c-97852e5ede81",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544178,
-                    "modificationTimeUnixTimeInMs": 1670993544178
+                    "creationTimeUnixTimeInMs": 1671036771033,
+                    "modificationTimeUnixTimeInMs": 1671036771033
                 }
             ]
         }
@@ -637,8 +637,8 @@
                     "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544192,
-                    "modificationTimeUnixTimeInMs": 1670993544192
+                    "creationTimeUnixTimeInMs": 1671036771048,
+                    "modificationTimeUnixTimeInMs": 1671036771048
                 },
                 {
                     "integrationIdentifier": "FalconSandbox",
@@ -651,8 +651,8 @@
                     "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544192,
-                    "modificationTimeUnixTimeInMs": 1670993544192
+                    "creationTimeUnixTimeInMs": 1671036771048,
+                    "modificationTimeUnixTimeInMs": 1671036771048
                 },
                 {
                     "integrationIdentifier": "FalconSandbox",
@@ -665,8 +665,8 @@
                     "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544192,
-                    "modificationTimeUnixTimeInMs": 1670993544192
+                    "creationTimeUnixTimeInMs": 1671036771048,
+                    "modificationTimeUnixTimeInMs": 1671036771048
                 },
                 {
                     "integrationIdentifier": "FalconSandbox",
@@ -679,116 +679,8 @@
                     "integrationInstance": "9646e840-ce86-405d-a580-240b64ccf121",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544192,
-                    "modificationTimeUnixTimeInMs": 1670993544192
-                }
-            ]
-        }
-    },
-    {
-        "environment": "Default Environment",
-        "integrationIdentifier": "MicrosoftGraphMail",
-        "settings": {
-            "instanceDescription": null,
-            "instanceName": "System Default Instance",
-            "settings": [
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "Azure AD Endpoint",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Azure AD Endpoint",
-                    "propertyType": 2,
-                    "isMandatory": true,
-                    "value": "https://login.microsoftonline.com",
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
-                },
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "Microsoft Graph Endpoint",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Microsoft Graph Endpoint",
-                    "propertyType": 2,
-                    "isMandatory": true,
-                    "value": "https://graph.microsoft.com",
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
-                },
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "Client ID",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Client ID",
-                    "propertyType": 2,
-                    "isMandatory": true,
-                    "value": "b1a8d738-4480-4724-ac6c-ec1695f30350",
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
-                },
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "Secret ID",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Secret ID",
-                    "propertyType": 3,
-                    "isMandatory": true,
-                    "value": "***************",
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
-                },
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "Tenant",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Tenant",
-                    "propertyType": 2,
-                    "isMandatory": true,
-                    "value": "3f06a216-e798-47d3-9b06-31482aa5a648",
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
-                },
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "Verify SSL",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Verify SSL",
-                    "propertyType": 0,
-                    "isMandatory": false,
-                    "value": "True",
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
-                },
-                {
-                    "integrationIdentifier": "MicrosoftGraphMail",
-                    "propertyName": "AgentIdentifier",
-                    "propertyDescription": null,
-                    "propertyDisplayName": "Agent",
-                    "propertyType": 9,
-                    "isMandatory": false,
-                    "value": null,
-                    "integrationInstance": "342db253-c5df-4c24-92fa-62e581453199",
-                    "environment": null,
-                    "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544209,
-                    "modificationTimeUnixTimeInMs": 1670993544209
+                    "creationTimeUnixTimeInMs": 1671036771048,
+                    "modificationTimeUnixTimeInMs": 1671036771048
                 }
             ]
         }
@@ -811,8 +703,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -825,8 +717,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -839,8 +731,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -853,8 +745,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -867,8 +759,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -881,8 +773,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -895,8 +787,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -909,8 +801,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -923,8 +815,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -937,8 +829,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -951,8 +843,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -965,8 +857,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -979,8 +871,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 },
                 {
                     "integrationIdentifier": "Exchange",
@@ -993,8 +885,8 @@
                     "integrationInstance": "d9f7ed0c-bb74-4232-a91a-63dec02b316a",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544226,
-                    "modificationTimeUnixTimeInMs": 1670993544226
+                    "creationTimeUnixTimeInMs": 1671036771064,
+                    "modificationTimeUnixTimeInMs": 1671036771064
                 }
             ]
         }
@@ -1017,8 +909,8 @@
                     "integrationInstance": "7ea566a5-5b72-4745-8246-6caed76488a2",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544241,
-                    "modificationTimeUnixTimeInMs": 1670993544241
+                    "creationTimeUnixTimeInMs": 1671036771079,
+                    "modificationTimeUnixTimeInMs": 1671036771079
                 }
             ]
         }
@@ -1041,8 +933,8 @@
                     "integrationInstance": "2a9c33f0-bba0-4799-a23a-f2a6ba9edfce",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544256,
-                    "modificationTimeUnixTimeInMs": 1670993544256
+                    "creationTimeUnixTimeInMs": 1671036771095,
+                    "modificationTimeUnixTimeInMs": 1671036771095
                 },
                 {
                     "integrationIdentifier": "UnshortenMe",
@@ -1055,8 +947,8 @@
                     "integrationInstance": "2a9c33f0-bba0-4799-a23a-f2a6ba9edfce",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544256,
-                    "modificationTimeUnixTimeInMs": 1670993544256
+                    "creationTimeUnixTimeInMs": 1671036771095,
+                    "modificationTimeUnixTimeInMs": 1671036771095
                 }
             ]
         }
@@ -1079,8 +971,8 @@
                     "integrationInstance": "57763ca6-3f5a-4f28-adb8-08696f264eb1",
                     "environment": null,
                     "id": 0,
-                    "creationTimeUnixTimeInMs": 1670993544272,
-                    "modificationTimeUnixTimeInMs": 1670993544272
+                    "creationTimeUnixTimeInMs": 1671036771110,
+                    "modificationTimeUnixTimeInMs": 1671036771110
                 }
             ]
         }
